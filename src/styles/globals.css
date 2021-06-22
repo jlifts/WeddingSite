@@ -1,0 +1,10 @@
+:root {
+  --primary: rgb(155, 207, 151);
+  --secondary: rgb(219, 149, 103);
+  --accent: rgb(255, 226, 97);
+  --font-color: #fff;
+  --shadow: rgb(117, 117, 117);
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
