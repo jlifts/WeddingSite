@@ -1,25 +1,26 @@
-import React, { ReactElement } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import SignUp from './pages/signupform';
+import SignIn from './pages/signinform';
+import Home from './pages/Home';
+import RSVP from './pages/RSVP';
+import Maid from './pages/Bridesmaids';
+import Admin from './pages/Admin';
+import Groom from './pages/Groomsmen';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
-function App(): ReactElement {
+const App: React.FC = () => {
+  const location = useLocation();
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch location={location} key={location.key}>
+      <Route path='/signup' exact component={SignUp} />
+      <Route path='/login' exact component={SignIn} />
+      <Route path='/' exact component={Home} />
+      <Route path='/rsvp' exact component={RSVP} />
+      <Route path='/groomsmen' exact component={Maid} />
+      <Route path='/bridesmaid' exact component={Groom} />
+      <Route path='/admin' exact component={Admin} />
+    </Switch>
   );
-}
+};
 
 export default App;
