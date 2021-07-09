@@ -1,8 +1,8 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
 import {
-  FIREBASE_APIKEY,
+  FIREBASE_API_KEY,
   FIREBASE_APPID,
   FIREBASE_AUTHDOMAIN,
   FIREBASE_DATABASEURL,
@@ -13,7 +13,7 @@ import {
 } from '../key';
 
 const firebaseConfig = {
-  apiKey: FIREBASE_APIKEY,
+  apiKey: FIREBASE_API_KEY,
   authDomain: FIREBASE_AUTHDOMAIN,
   databaseURL: FIREBASE_DATABASEURL,
   projectId: FIREBASE_PROJECTID,
@@ -23,6 +23,6 @@ const firebaseConfig = {
   measurementId: FIREBASE_MEASUREMENTID,
 };
 
-firebase.initializeApp(firebaseConfig);
-
-export default firebase;
+const app = firebase.initializeApp(firebaseConfig);
+export const auth = app.auth();
+export default app;
