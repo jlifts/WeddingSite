@@ -9,7 +9,7 @@ const SignUpForm = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const passwordConfRef = useRef(null);
-  const { signup, loginWithGoogle } = useAuth();
+  const { signup, googleAuth } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -20,29 +20,32 @@ const SignUpForm = () => {
     if (passwordRef.current.value !== passwordConfRef.current.value) {
       return setError('Passwords do not match');
     }
+    if (emailRef.current.value === '') {
+      return setError('Please Provide Email');
+    }
     try {
       setLoading(true);
       setError('');
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await signup(
+        emailRef.current.value,
+        passwordRef.current.value,
+        userRef.current.value
+      );
       history.push('/party');
     } catch {
       setError('Failed to create account');
     }
     setLoading(false);
   }
-
-  async function handleGoogle(e) {
-    e.preventDefault();
-
+  async function handleGoogle() {
     try {
       setLoading(true);
       setError('');
-      await loginWithGoogle();
+      await googleAuth();
       history.push('/party');
     } catch {
       setError('Failed to create account with Google');
     }
-    setLoading(false);
   }
 
   return (
@@ -77,14 +80,14 @@ const SignUpForm = () => {
               name='username'
               placeholder=' '
               className='block w-full appearance-none focus:outline-none bg-transparent'
-              required={true}
               ref={userRef}
+              required={true}
             />
             <label
               htmlFor='username'
               className='absolute top-0 -z-1 duration-300 origin-0'
             >
-              Username
+              Name
             </label>
           </div>
           <div className='relative border-b-2 focus-within:border-blue-500'>
@@ -93,8 +96,8 @@ const SignUpForm = () => {
               name='email'
               placeholder=' '
               className='block w-full appearance-none focus:outline-none bg-transparent'
-              required={true}
               ref={emailRef}
+              required={true}
             />
             <label
               htmlFor='email'
@@ -109,8 +112,8 @@ const SignUpForm = () => {
               name='password'
               placeholder=' '
               className='block w-full appearance-none focus:outline-none bg-transparent'
-              required={true}
               ref={passwordRef}
+              required={true}
             />
             <label
               htmlFor='password'
@@ -125,8 +128,8 @@ const SignUpForm = () => {
               name='password-conf'
               placeholder=' '
               className='block w-full appearance-none focus:outline-none bg-transparent'
-              required={true}
               ref={passwordConfRef}
+              required={true}
             />
             <label
               htmlFor='password-conf'

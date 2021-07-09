@@ -7,7 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 const SignInForm = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const { login } = useAuth();
+  const { login, googleAuth } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -23,6 +23,16 @@ const SignInForm = () => {
       setError('Failed to log in');
     }
     setLoading(false);
+  }
+  async function handleGoogle() {
+    try {
+      setLoading(true);
+      setError('');
+      await googleAuth();
+      history.push('/party');
+    } catch {
+      setError('Failed to create account with Google');
+    }
   }
 
   return (
@@ -95,7 +105,7 @@ const SignInForm = () => {
           </button>
           <div className='flex justify-center my-1 or'>or</div>
           <div>
-            <GoogleLoginButton className='google'>
+            <GoogleLoginButton className='google' onClick={handleGoogle}>
               <span className=''>Log In with Google</span>
             </GoogleLoginButton>
           </div>

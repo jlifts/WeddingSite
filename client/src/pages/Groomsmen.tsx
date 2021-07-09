@@ -29,7 +29,8 @@ const Groomsmen: React.FC = () => {
         </div>
       )}
       Grooms Home
-      <div>{currentUser.email}</div>
+      <img src={currentUser.photoURL} />
+      <div>{currentUser.displayName}</div>
       <Link to='/profile'>Profile</Link>
       <button onClick={handleLogOut}>Log Out</button>
     </div>

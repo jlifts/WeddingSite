@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useContext, useState, useEffect } from 'react';
-import { auth } from './firebase';
+import { auth, googleProvider } from './firebase';
 
 const AuthContext = React.createContext();
 
@@ -12,25 +12,22 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
-  function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password);
-  }
-
-  function loginWithGoogle() {
-    // Using a popup.
-    var provider = new auth.GoogleAuthProvider();
-    provider.addScope('profile');
-    provider.addScope('email');
-    return auth.signInWithPopup(provider).then(function (result) {
-      // This gives you a Google Access Token.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
+  function signup(email, password, username) {
+    return auth.createUserWithEmailAndPassword(email, password).then((res) => {
+      res.user.updateProfile({ displayName: username });
     });
   }
 
   function login(email, password) {
     return auth.signInWithEmailAndPassword(email, password);
+  }
+
+  function googleAuth() {
+    return auth.signInWithPopup(googleProvider).then((res) => {
+      // eslint-disable-next-line no-undef
+      console.log(res);
+      return res.user;
+    });
   }
 
   function logout() {
@@ -56,7 +53,7 @@ export function AuthProvider({ children }) {
     login,
     logout,
     resetPassword,
-    loginWithGoogle,
+    googleAuth,
   };
   return (
     <AuthContext.Provider value={value}>
