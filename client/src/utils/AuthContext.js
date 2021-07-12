@@ -18,6 +18,10 @@ export function AuthProvider({ children }) {
     });
   }
 
+  function updateName(username) {
+    return currentUser.updateProfile({ displayName: username });
+  }
+
   function login(email, password) {
     return auth.signInWithEmailAndPassword(email, password);
   }
@@ -52,6 +56,7 @@ export function AuthProvider({ children }) {
     signup,
     login,
     logout,
+    updateName,
     resetPassword,
     googleAuth,
   };

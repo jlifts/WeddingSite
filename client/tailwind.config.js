@@ -10,6 +10,17 @@ module.exports = {
       transformOrigin: {
         0: '0%',
       },
+      colors: {
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        primaryAccent: 'var(--primary-accent)',
+        neutral: 'var(--neutral)',
+        secondaryAccent: 'var(--secondary-accent)',
+        bg2: 'var(--bg2)',
+      },
+      backgroundImage: () => ({
+        'hero-image': "url('./img/example1.jpeg')",
+      }),
     },
     screens: {
       sm: '640px',

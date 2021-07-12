@@ -1,3 +1,12 @@
+:root {
+  --primary: #ff8a65;
+  --secondary: #61714d;
+  --neutral: #c2a887;
+  --primary-accent: #ef9a9a;
+  --secondary-accent: #8fae93;
+  --bg2: #f7f7f7;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
