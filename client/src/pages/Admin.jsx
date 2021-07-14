@@ -42,7 +42,7 @@ const Admin = () => {
   });
 
   return (
-    <section className='h-screen p-12 bg-bg2'>
+    <section className='h-screen p-12 bg-bg2 font-body'>
       {error && (
         <div
           className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'
@@ -63,7 +63,7 @@ const Admin = () => {
             ? 'My Beautiful Bride'
             : currentUser.displayName === 'Olivia Blakeslee'
             ? 'My Beautiful Bride'
-            : 'Hmmmm... Wrong Dashboard'}
+            : 'Hmmmm... Wrong Dashboard!'}
           !
         </h4>
         <div className='flex'>

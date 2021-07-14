@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --primary: #ff8a65;
   --secondary: #61714d;
@@ -7,10 +14,6 @@
   --bg2: #f7f7f7;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 input:focus-within ~ label,
 input:not(:placeholder-shown) ~ label {
   @apply transform scale-75 -translate-y-6;
@@ -19,6 +22,10 @@ input:not(:placeholder-shown) ~ label {
 input:focus-within ~ label {
   @apply text-blue-500;
 }
+body {
+  overflow: overlay !important;
+}
+
 .or {
   margin: 1rem 0 -1.5rem !important;
 }

@@ -25,7 +25,7 @@ const Profile = () => {
   }
 
   return (
-    <section className='flex align-items-center justify-center container-fluid  min-h-96 overflow-none'>
+    <section className='flex align-items-center justify-center container-fluid  min-h-96 overflow-none font-body'>
       <div
         className='flex justify-center flex-col align-items-center m-4'
         style={{ maxWidth: '1000px' }}
@@ -66,7 +66,7 @@ const Profile = () => {
           <button
             disabled={loading}
             type='submit'
-            className='w-full px-3 py-4 text-white bg-secondary rounded-md hover:bg-secondaryAccent focus:bg-secondaryAccent focus:outline-none'
+            className='w-full px-3 py-4 text-white bg-secondary rounded-md hover:bg-secondaryAccent focus:bg-secondaryAccent focus:outline-none font-items'
           >
             Submit Change
           </button>
@@ -74,7 +74,7 @@ const Profile = () => {
         </form>
         <button
           onClick={() => history.goBack()}
-          className='px-2 py-3 bg-secondary rounded m-8 text-white hover:bg-secondaryAccent'
+          className='px-2 py-3 bg-secondary rounded m-8 text-white hover:bg-secondaryAccent font-items'
         >
           Back to Dashboard
         </button>

@@ -41,7 +41,7 @@ const Groomsmen = () => {
   });
 
   return (
-    <section className='bg-black h-screen p-7'>
+    <section className='bg-black h-screen p-7 font-items'>
       {error && (
         <div
           className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'

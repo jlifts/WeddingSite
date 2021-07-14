@@ -19,7 +19,7 @@ module.exports = {
         bg2: 'var(--bg2)',
       },
       backgroundImage: () => ({
-        'hero-image': "url('./img/example1.jpeg')",
+        'hero-image': "url('../img/example1.jpeg')",
       }),
     },
     screens: {
@@ -38,11 +38,16 @@ module.exports = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     },
+    fontFamily: {
+      body: ['Cormorant Upright'],
+      items: ['Raleway'],
+    },
   },
   variants: {
     extend: {},
     variants: {
       borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
+      colors: ['responsive', 'hover', 'focus', 'focus-within'],
     },
   },
   plugins: [],

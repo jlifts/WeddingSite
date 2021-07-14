@@ -41,7 +41,7 @@ const Bridesmaids = () => {
   });
 
   return (
-    <section className=' h-screen p-7'>
+    <section className=' h-screen p-7 font-body'>
       {error && (
         <div
           className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'
