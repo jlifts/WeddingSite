@@ -1,6 +1,16 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useContext, useState, useEffect } from 'react';
-import { auth, googleProvider } from './firebase';
+import firebase from 'firebase';
+import {
+  auth,
+  googleProvider,
+  db,
+  // getCurrentTimestamp,
+  timeStamp,
+  storage,
+} from './firebase';
 
 const AuthContext = React.createContext();
 
@@ -15,6 +25,43 @@ export function AuthProvider({ children }) {
   function signup(email, password, username) {
     return auth.createUserWithEmailAndPassword(email, password).then((res) => {
       res.user.updateProfile({ displayName: username });
+    });
+  }
+
+  function uploadPicture() {
+    const upload = storage.ref(`images/${image.name}`).put(image);
+    upload.on(
+      'state_changed',
+      (snapshot) => {},
+      (error) => {
+        console.loog(error);
+      },
+      () => {
+        storage
+          .ref('images')
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            console.log(url);
+          });
+      }
+    );
+  }
+
+  //TODO: Create Timestamp in db for picture upload and by whom
+
+  function rsvp(name, number) {
+    db.collection('guests').doc(name).set({
+      name: name,
+      attendees: number,
+      createdAt: timeStamp,
+    });
+  }
+
+  function increment(number) {
+    const increment = firebase.firestore.FieldValue.increment(number);
+    db.collection('guestCount').doc('guestCount').update({
+      count: increment,
     });
   }
 
@@ -59,6 +106,9 @@ export function AuthProvider({ children }) {
     updateName,
     resetPassword,
     googleAuth,
+    uploadPicture,
+    rsvp,
+    increment,
   };
   return (
     <AuthContext.Provider value={value}>

@@ -3,6 +3,9 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 
+//TODO: PAginate photos in storage and display who uploaded and when
+// FEATURE: Allow comments and Likes?
+
 const Photos: React.FC = () => {
   return (
     <>

@@ -3,6 +3,8 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 
+//TODO: Show places and adresses with google maps link
+
 const PlacesToStay: React.FC = () => {
   return (
     <>

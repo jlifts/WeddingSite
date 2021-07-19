@@ -4,7 +4,7 @@ import { REGISTRY_GUEST } from '../key';
 
 const Nav: React.FC = () => {
   return (
-    <nav className='bg-secondary text-white flex p-3 justify-between sticky top-0 font-items'>
+    <nav className='bg-secondary text-white flex p-3 justify-between sticky top-0 font-items z-50'>
       <div className='flex justify-start'>
         <Link className='px-8 hover:text-primary' to='/'>
           Home

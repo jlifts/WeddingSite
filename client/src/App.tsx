@@ -11,6 +11,8 @@ import Maid from './pages/Bridesmaids';
 import Admin from './pages/Admin';
 import Groom from './pages/Groomsmen';
 import Party from './pages/party';
+import RSVPD from './pages/RSVPD';
+import Thankyou from './pages/Thankyou';
 import PasswordReset from './pages/auth/passwordReset';
 import { AuthProvider } from './utils/AuthContext';
 import PrivateRoute from './routes/privateRoute';
@@ -28,9 +30,11 @@ const App: React.FC = () => {
         <Route path='/rsvp' component={RSVP} />
         <Route path='/photos' component={Photo} />
         <Route path='/faq' component={FAQ} />
+        <Route path='/thankyou' component={Thankyou} />
         <Route path='/places-to-stay' component={PlacesToStay} />
         <Route path='/passwordreset' component={PasswordReset} />
         <PrivateRoute path='/profile' component={Profile} />
+        <PrivateRoute path='/rsvplist' component={RSVPD} />
         <PrivateRoute path='/bridesmaid' component={Maid} />
         <PrivateRoute path='/party' component={Party} />
         <PrivateRoute path='/groomsmen' component={Groom} />

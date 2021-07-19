@@ -52,6 +52,7 @@ const Profile = () => {
               type='text'
               name='username'
               placeholder=' '
+              autoComplete='off'
               className='block w-full appearance-none focus:outline-none bg-transparent'
               ref={userRef}
               required={true}

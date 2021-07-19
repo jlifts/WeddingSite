@@ -1,15 +1,15 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+
+import Clock from '../components/Clock';
 import { useAuth } from '../utils/AuthContext';
 
 const Groomsmen = () => {
   const [error, setError] = useState('');
-  const [timeLeft, setTimeLeft] = useState(calcTimeLeft());
   const { currentUser, logout } = useAuth();
   const history = useHistory();
-  const timerComponents = [];
 
   async function handleLogOut() {
     setError('');
@@ -20,25 +20,6 @@ const Groomsmen = () => {
       setError('Failed to Logout');
     }
   }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(calcTimeLeft());
-    }, 1000);
-    return () => clearTimeout(timer);
-  });
-
-  Object.keys(timeLeft).forEach((interval) => {
-    if (!timeLeft[interval]) {
-      return;
-    }
-
-    timerComponents.push(
-      <span>
-        {timeLeft[interval]} {interval}{' '}
-      </span>
-    );
-  });
 
   return (
     <section className='bg-black h-screen p-7 font-items'>
@@ -80,12 +61,8 @@ const Groomsmen = () => {
         <div className='ml-96'>
           <div>
             <h5 className='text-white text-4xl'>The Big Day</h5>
-            <div className='text-white text-4xl py-6'>
-              {timerComponents.length ? (
-                timerComponents
-              ) : (
-                <span>It's Here!</span>
-              )}
+            <div className='text-white text-3xl'>
+              <Clock text='The Big Day is Here!' />
             </div>
             <div className='mt-24'>
               <Link to='#' className='text-white text-4xl hover:text-blue-400'>
@@ -100,20 +77,3 @@ const Groomsmen = () => {
 };
 
 export default Groomsmen;
-
-function calcTimeLeft() {
-  // const year = new Date().getFullYear();
-  const difference = +new Date(`07/30/2022`) - +new Date();
-
-  let timeLeft = {};
-
-  if (difference > 0) {
-    timeLeft = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-  }
-  return timeLeft;
-}

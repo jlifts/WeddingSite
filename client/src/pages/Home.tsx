@@ -6,6 +6,8 @@ import MobileNav from '../components/MobileNav';
 import Nav from '../components/Nav';
 import { REGISTRY_GUEST } from '../key';
 
+//TODO: Add in the proposal story and pictures before footer
+
 const Home: React.FC = () => {
   return (
     <>

@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
 import { REGISTRY_GUEST } from '../key';
+
+//Add Social Pages Links
 
 const Footer: React.FC = () => {
   return (
@@ -30,12 +35,24 @@ const Footer: React.FC = () => {
             Places To Stay
           </Link>
         </div>
-        <div>
+        <div className='flex flex-col space-y-3'>
           <Link to='/login' className='hover:text-primary'>
             Bridal Party Login
           </Link>
-          <div>Insta</div>
-          <div>Facebook</div>
+          <div className='flex flex-row text-xl'>
+            <Link to='#'>
+              <FontAwesomeIcon
+                icon={faInstagram}
+                className='cursor-pointer hover:text-pink-400'
+              />
+            </Link>
+            <Link to='#'>
+              <FontAwesomeIcon
+                icon={faFacebook}
+                className='ml-3 cursor-pointer hover:text-blue-400'
+              />
+            </Link>
+          </div>
         </div>
         <div className='flex flex-col'>
           <form

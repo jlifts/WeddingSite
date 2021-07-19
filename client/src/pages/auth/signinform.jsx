@@ -73,6 +73,7 @@ const SignInForm = () => {
                   type='text'
                   name='email'
                   placeholder=' '
+                  autoComplete='off'
                   className='block w-full appearance-none focus:outline-none bg-transparent'
                   required={true}
                   ref={emailRef}
@@ -89,6 +90,7 @@ const SignInForm = () => {
                   type='password'
                   name='password'
                   placeholder=' '
+                  autoComplete='off'
                   className='block w-full appearance-none focus:outline-none bg-transparent'
                   required={true}
                   ref={passwordRef}

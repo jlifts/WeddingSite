@@ -16,6 +16,12 @@ const party: React.FC = () => {
       >
         Bridesmaids
       </Link>
+      <Link
+        to='/admin'
+        className='text-xl absolute top-2 right-4 font-bold text-gray-500 hover:text-black uppercase'
+      >
+        Admin
+      </Link>
     </div>
   );
 };

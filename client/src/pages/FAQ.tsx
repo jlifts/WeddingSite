@@ -3,6 +3,8 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 
+//TODO: accordian popular questions
+
 const FAQ: React.FC = () => {
   return (
     <>

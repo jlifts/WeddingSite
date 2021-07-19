@@ -86,6 +86,7 @@ const SignUpForm = () => {
                   type='text'
                   name='username'
                   placeholder=' '
+                  autoComplete='off'
                   className='block w-full appearance-none focus:outline-none bg-transparent'
                   ref={userRef}
                   required={true}
@@ -102,6 +103,7 @@ const SignUpForm = () => {
                   type='text'
                   name='email'
                   placeholder=' '
+                  autoComplete='off'
                   className='block w-full appearance-none focus:outline-none bg-transparent'
                   ref={emailRef}
                   required={true}
@@ -118,6 +120,7 @@ const SignUpForm = () => {
                   type='password'
                   name='password'
                   placeholder=' '
+                  autoComplete='off'
                   className='block w-full appearance-none focus:outline-none bg-transparent'
                   ref={passwordRef}
                   required={true}
@@ -134,6 +137,7 @@ const SignUpForm = () => {
                   type='password'
                   name='password-conf'
                   placeholder=' '
+                  autoComplete='off'
                   className='block w-full appearance-none focus:outline-none bg-transparent'
                   ref={passwordConfRef}
                   required={true}

@@ -12,3 +12,4 @@ export const FIREBASE_MEASUREMENTID =
 export const API_URL = process.env.REACT_APP_API_URL as string;
 export const REGISTRY_GUEST = process.env.REACT_APP_REGISTRY_GUEST as string;
 export const REGISTRY_ADMIN = process.env.REACT_APP_REGISTRY_ADMIN as string;
+export const INVITE = process.env.REACT_APP_INVITE;

@@ -61,6 +61,7 @@ const passwordReset = () => {
               type='text'
               name='email'
               placeholder=' '
+              autoComplete='off'
               className='block w-full appearance-none focus:outline-none bg-transparent'
               required={true}
               ref={emailRef}
