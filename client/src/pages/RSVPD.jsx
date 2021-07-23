@@ -4,9 +4,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../utils/AuthContext';
+import { useDB } from '../hooks/useDB';
 import { db } from '../utils/firebase';
-
-//TODO: Delete and Update functions
+import { GROOM, BRIDE } from '../key';
+import CountModal from '../components/countModal';
 
 const RSVPD = () => {
   const [error, setError] = useState('');
@@ -14,7 +15,7 @@ const RSVPD = () => {
   const [total, setTotal] = useState(0);
   const { currentUser, logout } = useAuth();
   const history = useHistory();
-  const deleteButton = useRef();
+  const { decrement, update } = useDB();
 
   async function handleLogOut() {
     setError('');
@@ -26,9 +27,14 @@ const RSVPD = () => {
     }
   }
 
-  async function handleDelete(deleteButton) {
-    // db.collection('guests').doc(name).delete();
-    console.log(deleteButton);
+  async function handleDelete(name, attendees) {
+    decrement(attendees);
+    db.collection('guests').doc(name).delete();
+  }
+
+  async function handleUpdate(number) {
+    // update(number);
+    console.log(number);
   }
 
   // Firestore
@@ -42,11 +48,7 @@ const RSVPD = () => {
     const guestTotal = db
       .collection('guestCount')
       .doc('guestCount')
-      .get()
-      .then((snapshot) => {
-        setTotal(snapshot.data());
-      });
-    // return () => guestTotal();
+      .onSnapshot((snap) => setTotal(snap.data()));
   }, []);
 
   return (
@@ -63,9 +65,9 @@ const RSVPD = () => {
       <nav className='flex items-end w-full justify-between'>
         <h4 className=' text-5xl'>
           Hello{' '}
-          {currentUser.uid === 'YyNFxfoxjdSR3RQrKqhG7g5do3s1'
+          {currentUser.uid === GROOM
             ? 'Groom!'
-            : currentUser.uid === 'l753tSRetlgGrWotZnb0jbfRwSF2'
+            : currentUser.uid === BRIDE
             ? 'My Beautiful Bride!'
             : history.push('/party')}
         </h4>
@@ -85,12 +87,12 @@ const RSVPD = () => {
         </div>
       </nav>
       <div className='my-12 text-lg'>Total Guest Count: {total.count} </div>
+      <CountModal />
       <table className='m-12 space-x-4 space-y-4 w-full'>
         <tr>
           <th className='w-48'>Name</th>
           <th className='w-48'>Attendees</th>
           <th className='w-48'>Created At</th>
-          <th className='w-48'>Update</th>
           <th className='w-48'>Delete</th>
         </tr>
         {dataList
@@ -103,10 +105,10 @@ const RSVPD = () => {
                   <td className='text-lg w-48 h-10'>{attendees}</td>
                   <td className='w-48 h-10'>{createdAt}</td>
                   <td>
-                    <button className='pt-2 w-48 h-10'>Update</button>
-                  </td>
-                  <td>
-                    <button className='pt-2 w-48 h-10' onClick={handleDelete}>
+                    <button
+                      className='pt-2 w-48 h-10'
+                      onClick={() => handleDelete(name, attendees)}
+                    >
                       X
                     </button>
                   </td>

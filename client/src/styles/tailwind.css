@@ -5,6 +5,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @variants responsive {
+    .masonry {
+      column-count: 4;
+      column-gap: 1.5em;
+    }
+    .break-inside {
+      break-inside: avoid;
+    }
+  }
+}
+
 :root {
   --primary: #ff8a65;
   --secondary: #61714d;
@@ -31,4 +43,28 @@ body {
 }
 .google {
   margin: 5px 0 !important;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.backdrop img {
+  display: block;
+  max-width: 60%;
+  max-height: 80%;
+  margin: 60px auto;
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+  border: 3px solid white;
+}
+.img-wrap {
+  overflow: hidden;
+  /* padding controls height, will always be perfectly square regardless of width */
+  opacity: 0.9;
+}
+.img-wrap img {
+  position: absolute;
 }

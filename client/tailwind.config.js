@@ -4,6 +4,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      scale: {
+        '-1': '-1',
+      },
       zIndex: {
         '-1': '-1',
       },
@@ -20,6 +23,7 @@ module.exports = {
       },
       backgroundImage: () => ({
         'hero-image': "url('../img/example1.jpeg')",
+        'prop-image': "url('../img/example2.jpeg')",
       }),
     },
     screens: {

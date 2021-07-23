@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../utils/AuthContext';
-import { REGISTRY_ADMIN } from '../key';
+import { REGISTRY_ADMIN, GROOM, BRIDE } from '../key';
 import Clock from '../components/Clock';
 import Modal from '../components/Modal';
 
@@ -26,9 +26,16 @@ const Admin = () => {
   return (
     <>
       <section className='h-screen p-12 bg-bg2 font-body'>
+        <img
+          src='img/example3.png'
+          alt='corner piece'
+          className='absolute bottom-0 right-0 transform -scale-x-1'
+          height={200}
+          width={200}
+        />
         {error && (
           <div
-            className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'
+            className='bg-red-100 border-l-4 border-red-500 text-rd-700 p-3'
             role='alert'
           >
             <p className='font-bold'>Error</p>
@@ -38,9 +45,9 @@ const Admin = () => {
         <nav className='flex items-end w-full justify-between'>
           <h4 className=' text-5xl'>
             Hello{' '}
-            {currentUser.uid === 'YyNFxfoxjdSR3RQrKqhG7g5do3s1'
+            {currentUser.uid === GROOM
               ? 'Groom!'
-              : currentUser.uid === 'l753tSRetlgGrWotZnb0jbfRwSF2'
+              : currentUser.uid === BRIDE
               ? 'My Beautiful Bride!'
               : history.push('/party')}
           </h4>
@@ -82,6 +89,13 @@ const Admin = () => {
             </Link>
           </div>
         </div>
+        <img
+          src='img/example3.png'
+          alt='corner piece'
+          className='absolute -bottom-3 left-0'
+          height={200}
+          width={200}
+        />
       </section>
     </>
   );

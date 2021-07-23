@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import LowerSection from '../components/LowerSection';
 import Footer from '../components/Footer';
 import Info from '../components/Info';
 import MobileNav from '../components/MobileNav';
@@ -40,6 +42,7 @@ const Home: React.FC = () => {
         </div>
       </section>
       <Info />
+      <LowerSection />
       <Footer />
     </>
   );

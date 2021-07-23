@@ -4,11 +4,11 @@ import { useHistory } from 'react-router-dom';
 
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
-import { useAuth } from '../utils/AuthContext';
+import { useDB } from '../hooks/useDB';
 import { INVITE } from '../key';
 
 const RSVP = () => {
-  const { rsvp, increment } = useAuth();
+  const { rsvp, increment } = useDB();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const nameRef = useRef(null);
@@ -50,11 +50,18 @@ const RSVP = () => {
   return (
     <>
       <Nav />
-      <section className='flex items-center justify-center container-fluid overflow-none h-screen font-body'>
+      <section className='flex items-center justify-center container-fluid overflow-none h-screen font-body bg-bg2 -mb-8'>
+        <img
+          src='img/example3.png'
+          alt='corner piece'
+          className='absolute top-10 right-0 transform rotate-180'
+          height={200}
+          width={200}
+        />
         <div className='flex justify-center flex-col items-center content-center m-4'>
           <form
             onSubmit={handleSubmit}
-            className='flex flex-col mx-auto space-y-14'
+            className='flex flex-col mx-auto space-y-14 '
             style={{ width: '600px' }}
           >
             <h2 className='flex justify-center text-4xl font-bold'>RSVP</h2>
@@ -81,7 +88,7 @@ const RSVP = () => {
               />
               <label
                 htmlFor='names'
-                className='absolute top-0 -z-1 duration-300 origin-0'
+                className='absolute top-0 z-1 duration-300 origin-0 cursor-text'
               >
                 Name(s)
               </label>
@@ -100,7 +107,7 @@ const RSVP = () => {
               />
               <label
                 htmlFor='number'
-                className='absolute top-0 -z-1 duration-300 origin-0'
+                className='absolute top-0 z-1 duration-300 origin-0 cursor-text'
               >
                 Number Of Attendees Or 0 If Not Attending
               </label>
@@ -118,7 +125,7 @@ const RSVP = () => {
               />
               <label
                 htmlFor='code'
-                className='absolute top-0 -z-1 duration-300 origin-0'
+                className='absolute top-0 z-1 duration-300 origin-0 cursor-text'
               >
                 Invite Code
               </label>
@@ -132,6 +139,13 @@ const RSVP = () => {
             </button>
           </form>
         </div>
+        <img
+          src='img/example3.png'
+          alt='corner piece'
+          className='absolute -bottom-3 left-0'
+          height={200}
+          width={200}
+        />
       </section>
       <Footer />
     </>

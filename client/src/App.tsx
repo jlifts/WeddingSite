@@ -18,6 +18,7 @@ import { AuthProvider } from './utils/AuthContext';
 import PrivateRoute from './routes/privateRoute';
 import FAQ from './pages/FAQ';
 import PlacesToStay from './pages/PlacesToStay';
+import PhotosAdmin from './pages/PhotosAdmin';
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -39,6 +40,7 @@ const App: React.FC = () => {
         <PrivateRoute path='/party' component={Party} />
         <PrivateRoute path='/groomsmen' component={Groom} />
         <PrivateRoute path='/admin' component={Admin} />
+        <PrivateRoute path='/photoadmin' component={PhotosAdmin} />
       </Switch>
     </AuthProvider>
   );

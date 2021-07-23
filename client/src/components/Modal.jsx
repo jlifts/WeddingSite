@@ -1,18 +1,14 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-undef */
 // Inspired by aji
 import React, { useState } from 'react';
 
-import { useAuth } from '../utils/AuthContext';
-import { storage } from '../utils/firebase';
-
-//TODO: Finish Loading Bar
+import ProgressBar from './Progress';
 
 const Modal = () => {
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState(null);
-  const [fileProgress, setFileProgress] = useState(0);
-  const { currentUser } = useAuth();
 
   function openModal() {
     setOpen(true);
@@ -30,27 +26,7 @@ const Modal = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const upload = storage.ref(`${image.name}`).put(image);
-    upload.on(
-      'state_changed',
-      (snapshot) => {
-        const progress = snapshot.bytesTransferred / snapshot.totalBytes;
-        setFileProgress(progress);
-      },
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        storage
-          .ref('images')
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            console.log(url);
-          });
-      }
-    );
-    // uploadPicture(image);
+
     closeModal();
   }
 
@@ -117,20 +93,7 @@ const Modal = () => {
                 </button>
               </div>
             </div>
-            {/* <div
-              className='bg-grey-200 border-l-4 border-blue-500 text-blue-700 p-3'
-              role='alert'
-              key={image.id}
-            >
-              <p className='font-bold truncate'>{image.name}</p>
-              <div class='shadow w-full bg-grey-light'>
-                <progress
-                  class='bg-blue text-xs leading-none py-1 text-center text-white'
-                  now={fileProgress * 100}
-                  label={` ${Math.round(fileProgress * 100)}%`}
-                />
-              </div>
-            </div> */}
+            {image && <ProgressBar image={image} setImage={setImage} />}
           </div>
         </form>
       ) : (
