@@ -29,9 +29,7 @@ const Admin = () => {
         <img
           src='img/example3.png'
           alt='corner piece'
-          className='absolute bottom-0 right-0 transform -scale-x-1'
-          height={200}
-          width={200}
+          className='absolute bottom-0 right-0 transform -scale-x-1 z-0 flare'
         />
         {error && (
           <div
@@ -42,8 +40,8 @@ const Admin = () => {
             <p>{error}</p>
           </div>
         )}
-        <nav className='flex items-end w-full justify-between'>
-          <h4 className=' text-5xl'>
+        <nav className='flex flex-col sm:flex-row items-end w-full justify-between'>
+          <h4 className='text-2xl sm:text-5xl'>
             Hello{' '}
             {currentUser.uid === GROOM
               ? 'Groom!'
@@ -65,14 +63,14 @@ const Admin = () => {
         </nav>
         <div className='flex mt-12 justify-center flex-col'>
           <div>
-            <h5 className='flex justify-center text-4xl'>
+            <h5 className='flex justify-center text-2xl sm:text-4xl'>
               Coutdown to The Kiss
             </h5>
-            <div className='text-6xl'>
+            <div className='text-2xl sm:text-6xl'>
               <Clock text='I Love You!' />
             </div>
           </div>
-          <div className='flex justify-evenly mt-24'>
+          <div className='flex space-x-6 -ml-4 sm:space-x-0 sm:justify-evenly mt-24'>
             <Link
               to={{ pathname: REGISTRY_ADMIN }}
               className='flex px-4 py-3 bg-primary justify-center hover:bg-primaryAccent w-40 rounded'
@@ -92,9 +90,7 @@ const Admin = () => {
         <img
           src='img/example3.png'
           alt='corner piece'
-          className='absolute -bottom-3 left-0'
-          height={200}
-          width={200}
+          className='absolute bottom-0 sm:-bottom-3 left-0 z-0 flare'
         />
       </section>
     </>

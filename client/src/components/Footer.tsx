@@ -8,9 +8,9 @@ import { REGISTRY_GUEST } from '../key';
 
 const Footer: React.FC = () => {
   return (
-    <footer className='bg-secondary text-white font-items py-10'>
-      <div className='grid grid-cols-3 justify-items-center'>
-        <div className='flex flex-col'>
+    <footer className='bg-secondary text-white font-items py-10 overflow-hidden'>
+      <div className='flex flex-col ml-5 sm:items-start space-y-14 sm:space-y-0 sm:grid sm:grid-cols-3 justify-items-center'>
+        <div className='flex flex-col sm:pt-3'>
           <h5 className='text-lg font-semibold pb-3'>Menu</h5>
           <Link className='hover:text-primary' to='/'>
             Home
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             Places To Stay
           </Link>
         </div>
-        <div className='flex flex-col space-y-3'>
+        <div className='flex flex-col space-y-3 font-semibold pt-3'>
           <Link to='/login' className='hover:text-primary'>
             Bridal Party Login
           </Link>
@@ -54,7 +54,8 @@ const Footer: React.FC = () => {
             </Link>
           </div>
         </div>
-        <div className='flex flex-col'>
+
+        <div className='flex flex-col mr-7 '>
           <form
             action='POST'
             method='POST'

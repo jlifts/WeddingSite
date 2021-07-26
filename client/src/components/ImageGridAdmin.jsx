@@ -16,10 +16,11 @@ const ImageGridAdmin = ({ setSelectedImg }) => {
 
   return (
     <section className='font-body flex flex-col  w-screen min-h-screen'>
-      <h3 className='text-5xl my-12 flex justify-center'>
+      <h3 className='text-2xl sm:text-5xl my-12 flex justify-center'>
         Moments We Will Never Forget
       </h3>
-      <div className='mx-12 masonry before:box-inherit after:box-inherit'>
+      <div className='grid grid-cols-1 sm:grid-cols-4 mx-12 before:box-inherit after:box-inherit'>
+        {/* masonry class is messing with delete */}
         {docs ? (
           docs.map((doc) => (
             <motion.div

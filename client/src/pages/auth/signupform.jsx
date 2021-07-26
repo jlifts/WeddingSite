@@ -59,9 +59,8 @@ const SignUpForm = () => {
             style={{ maxWidth: '1000px' }}
           >
             <form
-              className='flex flex-col max-w-md mx-auto w-full rounded-lg shadow-xl overflow-hidden p-10 space-y-10'
+              className='flex flex-col max-w-md mx-auto w-full rounded-lg shadow-xl overflow-hidden p-10 space-y-10 update'
               onSubmit={handleSubmit}
-              style={{ width: '700px' }}
             >
               <div className='flex flex-row justify-evenly text-2xl font-bold'>
                 <h4 className='cursor-default font-items'>Sign Up</h4>
@@ -162,7 +161,7 @@ const SignUpForm = () => {
                   className='google font-items'
                   onClick={handleGoogle}
                 >
-                  <span className=''>Log in with Google</span>
+                  <span className='text-sm sm:text-xl'>Log in with Google</span>
                 </GoogleLoginButton>
               </div>
               <div className='or text-xs'>

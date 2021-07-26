@@ -31,9 +31,8 @@ const Profile = () => {
         style={{ maxWidth: '1000px' }}
       >
         <form
-          className='flex flex-col max-w-md mx-auto w-full rounded-lg shadow-xl overflow-hidden p-10 space-y-10'
+          className='flex flex-col max-w-md mx-auto w-full rounded-lg shadow-xl overflow-hidden p-10 space-y-10 update'
           onSubmit={handleSubmit}
-          style={{ width: '700px' }}
         >
           <div className='flex flex-row justify-evenly text-2xl font-bold'>
             <h4 className='cursor-default'>Update Profile Name</h4>

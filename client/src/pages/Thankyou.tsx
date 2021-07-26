@@ -7,7 +7,7 @@ const Thankyou: React.FC = () => {
   return (
     <>
       <Nav />
-      <section className='font-body flex flex-col justify-center items-center h-screen text-5xl mx-24'>
+      <section className='font-body flex flex-col justify-center items-center h-screen w-screen text-xl sm:text-5xl sm:mx-24'>
         <span>Thank You For Celebrating Our Special Day</span>{' '}
         <span>We Cannot Wait To See You There!</span>
       </section>

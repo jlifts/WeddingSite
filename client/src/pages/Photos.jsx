@@ -7,7 +7,6 @@ import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import ImageGrid from '../components/ImageGrid';
 import ImageModal from '../components/ImageModal';
-import { GROOM, BRIDE } from '../key';
 import { useAuth } from '../utils/AuthContext';
 
 // FEATURE: Allow comments and Likes?

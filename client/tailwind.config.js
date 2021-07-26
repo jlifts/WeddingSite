@@ -22,7 +22,7 @@ module.exports = {
         bg2: 'var(--bg2)',
       },
       backgroundImage: () => ({
-        'hero-image': "url('../img/example1.jpeg')",
+        'hero-image': "url('../img/wedding_draft.jpg')",
         'prop-image': "url('../img/example2.jpeg')",
       }),
     },

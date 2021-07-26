@@ -52,7 +52,7 @@ const RSVPD = () => {
   }, []);
 
   return (
-    <section className='h-screen p-12 bg-bg2 font-body'>
+    <section className='h-screen w-screen py-12 px-6 sm:py-0 sm:px-0 sm:p-12 bg-bg2 font-body overflow-hidden'>
       {error && (
         <div
           className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'
@@ -62,8 +62,8 @@ const RSVPD = () => {
           <p>{error}</p>
         </div>
       )}
-      <nav className='flex items-end w-full justify-between'>
-        <h4 className=' text-5xl'>
+      <nav className='flex flex-col sm:flex-row items-end w-full justify-between'>
+        <h4 className='text-2xl mb-5 sm:mb-0 sm:text-5xl'>
           Hello{' '}
           {currentUser.uid === GROOM
             ? 'Groom!'
@@ -88,34 +88,36 @@ const RSVPD = () => {
       </nav>
       <div className='my-12 text-lg'>Total Guest Count: {total.count} </div>
       <CountModal />
-      <table className='m-12 space-x-4 space-y-4 w-full'>
-        <tr>
-          <th className='w-48'>Name</th>
-          <th className='w-48'>Attendees</th>
-          <th className='w-48'>Created At</th>
-          <th className='w-48'>Delete</th>
-        </tr>
-        {dataList
-          ? dataList.map(({ name, attendees, createdAt }) => (
-              <>
-                <tr className='text-center '>
-                  <td className='capitalize text-md font-bold w-48 h-10'>
-                    {name}
-                  </td>
-                  <td className='text-lg w-48 h-10'>{attendees}</td>
-                  <td className='w-48 h-10'>{createdAt}</td>
-                  <td>
-                    <button
-                      className='pt-2 w-48 h-10'
-                      onClick={() => handleDelete(name, attendees)}
-                    >
-                      X
-                    </button>
-                  </td>
-                </tr>
-              </>
-            ))
-          : 'Nothing Yet'}
+      <table className='mx-0 my-12 sm:mx-0 sm:my-0 sm:m-12 sm:space-x-4 sm:space-y-4 space-y-48 w-full'>
+        <tbody>
+          <tr>
+            <th className='w-48'>Name</th>
+            <th className='w-48'>Attendees</th>
+            <th className='w-48'>Created At</th>
+            <th className='w-48'>Delete</th>
+          </tr>
+          {dataList
+            ? dataList.map(({ name, attendees, createdAt }) => (
+                <>
+                  <tr className='text-center'>
+                    <td className='capitalize text-md font-bold w-80 h-20 sm:w-48 sm:h-10'>
+                      {name}
+                    </td>
+                    <td className='text-lg sm:w-48 h-10'>{attendees}</td>
+                    <td className='sm:w-48 h-10'>{createdAt}</td>
+                    <td>
+                      <button
+                        className='pt-2 sm:w-48 h-10'
+                        onClick={() => handleDelete(name, attendees)}
+                      >
+                        X
+                      </button>
+                    </td>
+                  </tr>
+                </>
+              ))
+            : 'Nothing Yet'}
+        </tbody>
       </table>
     </section>
   );

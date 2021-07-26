@@ -22,7 +22,7 @@ const Groomsmen = () => {
   }
 
   return (
-    <section className='bg-black h-screen p-7 font-items'>
+    <section className='bg-black h-full sm:h-screen p-7 font-items w-screen overflow-none'>
       {error && (
         <div
           className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'
@@ -33,7 +33,7 @@ const Groomsmen = () => {
         </div>
       )}
       <nav className='flex items-end w-full justify-between'>
-        <h4 className='bg-black text-white text-5xl'>
+        <h4 className='bg-black text-white text-2xl sm:text-5xl'>
           Hi {currentUser.displayName}!
         </h4>
         <div className='flex'>
@@ -48,23 +48,23 @@ const Groomsmen = () => {
           </button>
         </div>
       </nav>
-      <div className='flex flex-row mt-48'>
+      <div className='flex flex-col sm:flex-row mt-12 sm:mt-48 space-y-48'>
         <div>
           <h5 className='text-white text-4xl'>Important Dates</h5>
           <div>{}</div>
-          <div className='mt-48'>
+          <div className='mt-24 sm:mt-48'>
             <Link to='#' className='text-white text-4xl hover:text-blue-400'>
               Men's Warehouse
             </Link>
           </div>
         </div>
-        <div className='ml-96'>
-          <div>
-            <h5 className='text-white text-4xl'>The Big Day</h5>
-            <div className='text-white text-3xl'>
+        <div className=' sm:ml-96'>
+          <div className=''>
+            <h5 className='text-white text-lg sm:text-4xl'>The Big Day</h5>
+            <div className='text-white text-lg sm:text-3xl'>
               <Clock text='The Big Day is Here!' />
             </div>
-            <div className='mt-24'>
+            <div className='sm:mt-24 mt-48'>
               <Link to='#' className='text-white text-4xl hover:text-blue-400'>
                 Bachelor Party &#128526;
               </Link>

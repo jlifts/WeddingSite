@@ -41,9 +41,9 @@ const Modal = () => {
       {open ? (
         <form onSubmit={handleSubmit}>
           <div className='flex-col space-y-4 min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-transparent'>
-            <div className='flex flex-col p-8 bg-white shadow-md hover:shodow-lg rounded-2xl relative font-items'>
-              <div className='flex items-center justify-between '>
-                <div className='flex items-center'>
+            <div className='flex flex-col p-8 bg-white shadow-md hover:shodow-lg rounded-2xl relative font-items '>
+              <div className='flex flex-col sm:flex-row sm:items-center justify-between space-y-7 sm:space-y-0'>
+                <div className='flex flex-col sm:flex-row items-center space-y-7 sm:space-y-0'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     className='w-16 h-16 rounded-2xl p-3 border border-gray-800 text-blue-400 bg-gray-900'
@@ -81,7 +81,7 @@ const Modal = () => {
                 </div>
                 <button
                   onClick={closeModal}
-                  className='flex-no-shrink absolute top-0 right-0 px-5 ml-4 border-none py-2 text-sm hover:scale-150 font-medium tracking-wider  text-black '
+                  className='flex-no-shrink absolute top-0 right-0 px-7 sm:px-5 ml-4 border-none sm:py-2 text-sm hover:scale-150 font-medium tracking-wider  text-black '
                 >
                   X
                 </button>
