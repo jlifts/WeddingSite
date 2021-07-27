@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import SignUp from './pages/auth/signupform';
 import SignIn from './pages/auth/signinform';
@@ -24,24 +25,26 @@ const App: React.FC = () => {
   const location = useLocation();
   return (
     <AuthProvider>
-      <Switch location={location} key={location.key}>
-        <Route path='/signup' component={SignUp} />
-        <Route path='/login' component={SignIn} />
-        <Route path='/' exact component={Home} />
-        <Route path='/rsvp' component={RSVP} />
-        <Route path='/photos' component={Photo} />
-        <Route path='/faq' component={FAQ} />
-        <Route path='/thankyou' component={Thankyou} />
-        <Route path='/places-to-stay' component={PlacesToStay} />
-        <Route path='/passwordreset' component={PasswordReset} />
-        <PrivateRoute path='/profile' component={Profile} />
-        <PrivateRoute path='/rsvplist' component={RSVPD} />
-        <PrivateRoute path='/bridesmaid' component={Maid} />
-        <PrivateRoute path='/party' component={Party} />
-        <PrivateRoute path='/groomsmen' component={Groom} />
-        <PrivateRoute path='/admin' component={Admin} />
-        <PrivateRoute path='/photoadmin' component={PhotosAdmin} />
-      </Switch>
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <Switch location={location} key={location.key}>
+          <Route path='/signup' component={SignUp} />
+          <Route path='/login' component={SignIn} />
+          <Route path='/' exact component={Home} />
+          <Route path='/rsvp' component={RSVP} />
+          <Route path='/photos' component={Photo} />
+          <Route path='/faq' component={FAQ} />
+          <Route path='/thankyou' component={Thankyou} />
+          <Route path='/places-to-stay' component={PlacesToStay} />
+          <Route path='/passwordreset' component={PasswordReset} />
+          <PrivateRoute path='/profile' component={Profile} />
+          <PrivateRoute path='/rsvplist' component={RSVPD} />
+          <PrivateRoute path='/bridesmaid' component={Maid} />
+          <PrivateRoute path='/party' component={Party} />
+          <PrivateRoute path='/groomsmen' component={Groom} />
+          <PrivateRoute path='/admin' component={Admin} />
+          <PrivateRoute path='/photoadmin' component={PhotosAdmin} />
+        </Switch>
+      </AnimatePresence>
     </AuthProvider>
   );
 };

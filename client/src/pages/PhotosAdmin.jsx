@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
@@ -17,7 +18,11 @@ const PhotosAdmin = () => {
   const { currentUser } = useAuth();
 
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {currentUser.uid === GROOM ? (
         <>
           <Nav />
@@ -55,7 +60,7 @@ const PhotosAdmin = () => {
           <Footer />
         </>
       )}
-    </>
+    </motion.main>
   );
 };
 

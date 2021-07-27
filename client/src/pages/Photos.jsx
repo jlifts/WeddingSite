@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
@@ -17,7 +18,11 @@ const Photos = () => {
   const history = useHistory();
 
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {currentUser !== null ? (
         history.push('/photoadmin')
       ) : (
@@ -33,7 +38,7 @@ const Photos = () => {
           <Footer />
         </>
       )}
-    </>
+    </motion.main>
   );
 };
 

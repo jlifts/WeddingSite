@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const party: React.FC = () => {
   return (
-    <div className='flex flex-col sm:flex-row justify-evenly items-center h-screen font-body'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className='flex flex-col sm:flex-row justify-evenly items-center h-screen font-body'
+    >
       <Link
         to='/groomsmen'
         className='text-4xl sm:text-7xl font-bold text-gray-500 hover:text-black uppercase'
@@ -22,7 +28,7 @@ const party: React.FC = () => {
       >
         Admin
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
@@ -46,7 +47,11 @@ const RSVP = () => {
   //TODO: Change Firebase Rules for security
 
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Nav />
       <section className='flex items-center justify-center container-fluid overflow-none w-screen h-screen font-body bg-bg2 -mb-8'>
         <img
@@ -145,7 +150,7 @@ const RSVP = () => {
         />
       </section>
       <Footer />
-    </>
+    </motion.main>
   );
 };
 

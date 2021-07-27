@@ -78,6 +78,15 @@ body {
 .update {
   width: 300px !important;
 }
+.rotate {
+  transform: rotate(45deg) translateY(11px);
+}
+.rotateReverse {
+  transform: rotate(-45deg) translateY(-11px);
+}
+.disapear {
+  opacity: 0;
+}
 
 @media (min-width: 640px) {
   .rsvp {

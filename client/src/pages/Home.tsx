@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import LowerSection from '../components/LowerSection';
 import Footer from '../components/Footer';
@@ -10,8 +11,13 @@ import { REGISTRY_GUEST } from '../key';
 //TODO: Add in the proposal story and pictures before footer
 
 const Home: React.FC = () => {
+  const pageTransition = {
+    in: { opacity: 1 },
+    out: { opacity: 0 },
+  };
+
   return (
-    <>
+    <motion.div initial='out' animate='in' exit='out' variants={pageTransition}>
       <Nav />
       <section className='bg-hero-image bg-cover bg-right bg-no-repeat bg-fixed h-screen w-screen'>
         <div className='h-full sm:h-screen w-full sm:w-1/2 flex flex-col justify-center items-center sm:items-start bg-white bg-opacity-70 font-body'>
@@ -44,7 +50,7 @@ const Home: React.FC = () => {
       <Info />
       <LowerSection />
       <Footer />
-    </>
+    </motion.div>
   );
 };
 
