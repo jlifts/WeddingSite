@@ -53,7 +53,7 @@ const RSVPD = () => {
   }, []);
 
   return (
-    <section className='h-screen w-screen py-12 px-6 sm:py-0 sm:px-0 sm:p-12 bg-bg2 font-body overflow-hidden'>
+    <section className='h-screen w-screen py-12 px-6  sm:p-12 bg-bg2 font-body overflow-none'>
       {error && (
         <div
           className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'

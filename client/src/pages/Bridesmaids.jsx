@@ -22,7 +22,7 @@ const Bridesmaids = () => {
   }
 
   return (
-    <section className=' h-full sm:h-screen p-7 font-body overflow-hidden'>
+    <section className=' h-full sm:h-screen p-7 font-body overflow-none w-screen'>
       {error && (
         <div
           className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'
@@ -46,7 +46,7 @@ const Bridesmaids = () => {
           </button>
         </div>
       </nav>
-      <div className='flex-col sm:flex-row mt-12 sm:mt-48 space-y-12'>
+      <div className='flex flex-col sm:flex-row mt-12 sm:mt-48 space-y-12 sm:space-y-0'>
         <div>
           <h5 className='text-4xl'>Important Dates</h5>
           <div>{}</div>
