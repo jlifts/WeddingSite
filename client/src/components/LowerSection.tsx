@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const LowerSection = () => {
   return (
     <section className='h-screen bg-prop-image bg-left bg-cover h-50 bg-fixed overflow-hidden'>
