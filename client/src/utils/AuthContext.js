@@ -14,6 +14,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState(' ');
 
   function signup(email, password, username) {
     return auth.createUserWithEmailAndPassword(email, password).then((res) => {
@@ -49,6 +50,9 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      user.getIdToken().then((token) => {
+        setToken(token);
+      });
       setLoading(false);
     });
     return unsubscribe;
