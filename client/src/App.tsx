@@ -20,6 +20,7 @@ import PrivateRoute from './routes/privateRoute';
 import FAQ from './pages/FAQ';
 import PlacesToStay from './pages/PlacesToStay';
 import PhotosAdmin from './pages/PhotosAdmin';
+// import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -27,22 +28,24 @@ const App: React.FC = () => {
     <AuthProvider>
       <AnimatePresence exitBeforeEnter initial={false}>
         <Switch location={location} key={location.key}>
-          <Route path='/signup' component={SignUp} />
-          <Route path='/login' component={SignIn} />
+          <Route path='/signup' exact component={SignUp} />
+          <Route path='/login' exact component={SignIn} />
           <Route path='/' exact component={Home} />
-          <Route path='/rsvp' component={RSVP} />
-          <Route path='/photos' component={Photo} />
-          <Route path='/faq' component={FAQ} />
-          <Route path='/thankyou' component={Thankyou} />
-          <Route path='/places-to-stay' component={PlacesToStay} />
-          <Route path='/passwordreset' component={PasswordReset} />
-          <PrivateRoute path='/profile' component={Profile} />
-          <PrivateRoute path='/rsvplist' component={RSVPD} />
-          <PrivateRoute path='/bridesmaid' component={Maid} />
-          <PrivateRoute path='/party' component={Party} />
-          <PrivateRoute path='/groomsmen' component={Groom} />
-          <PrivateRoute path='/admin' component={Admin} />
-          <PrivateRoute path='/photoadmin' component={PhotosAdmin} />
+          <Route path='/rsvp' exact component={RSVP} />
+          <Route path='/photos' exact component={Photo} />
+          <Route path='/faq' exact component={FAQ} />
+          <Route path='/thankyou' exact component={Thankyou} />
+          <Route path='/places-to-stay' exact component={PlacesToStay} />
+          <Route path='/passwordreset' exact component={PasswordReset} />
+          {/* <Route path='/404' exact component={NotFound} />
+          <Redirect to='/404' /> */}
+          <PrivateRoute path='/profile' exact component={Profile} />
+          <PrivateRoute path='/rsvplist' exact component={RSVPD} />
+          <PrivateRoute path='/bridesmaid' exact component={Maid} />
+          <PrivateRoute path='/party' exact component={Party} />
+          <PrivateRoute path='/groomsmen' exact component={Groom} />
+          <PrivateRoute path='/admin' exact component={Admin} />
+          <PrivateRoute path='/photoadmin' exact component={PhotosAdmin} />
         </Switch>
       </AnimatePresence>
     </AuthProvider>

@@ -3,7 +3,7 @@ import React from 'react';
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const LowerSection = () => {
   return (
-    <section className='h-screen bg-prop-image bg-left bg-cover h-50 bg-fixed overflow-hidden'>
+    <section className='h-screen bg-prop-image bg-left bg-cover h-50 sm:bg-fixed overflow-hidden'>
       <div className='h-screen sm:w-1/2 flex flex-col justify-center float-right bg-white bg-opacity-70 font-body'>
         <div className='mx-5 sm:mx-0'>
           <h3 className='sm:mx-16 sm:ml-32 flex flex-col uppercase'>

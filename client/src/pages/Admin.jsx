@@ -53,6 +53,9 @@ const Admin = () => {
             <Link to='/' className=''>
               Home
             </Link>
+            <Link to='/photoadmin' className='ml-4'>
+              Photos
+            </Link>
             <Link to='/profile' className='mx-4'>
               Profile
             </Link>

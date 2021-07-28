@@ -19,7 +19,7 @@ const Home: React.FC = () => {
   return (
     <motion.div initial='out' animate='in' exit='out' variants={pageTransition}>
       <Nav />
-      <section className='bg-hero-image bg-cover bg-right bg-no-repeat bg-fixed h-screen w-screen'>
+      <section className='bg-hero-image bg-cover bg-right bg-no-repeat sm:bg-fixed h-screen w-screen'>
         <div className='h-full sm:h-screen w-full sm:w-1/2 flex flex-col justify-center items-center sm:items-start bg-white bg-opacity-70 font-body'>
           <h1 className='mx-4 sm:mx-16 flex flex-col uppercase'>
             <span className='text-3xl sm:text-6xl mt-1'>The Next Step</span>
