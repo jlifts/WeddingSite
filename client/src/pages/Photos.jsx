@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-// import { motion } from 'framer-motion';
 
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
