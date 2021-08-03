@@ -1,18 +1,46 @@
+/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { trackPromise } from 'react-promise-tracker';
 
-import useFirestore from '../hooks/useFirestore';
-import { useDB } from '../hooks/useDB';
+import axios from '../api/axios';
+import req from '../api/req';
+import LoadingIndicator from '../components/Loader';
 
-const ImageGridAdmin = ({ setSelectedImg }) => {
-  const { docs } = useFirestore('images');
+const ImageGridAdmin = () => {
+  const [docs, setDocs] = useState();
 
-  const { deletePhoto } = useDB();
-
-  function handleDelete(doc, name) {
-    deletePhoto(doc, name);
+  function pageRefresh() {
+    window.location.reload();
   }
+
+  // Firestore + Axios
+  async function handleDelete(doc, name) {
+    const config = {
+      docId: doc,
+      name: name,
+    };
+    console.log(config);
+    await axios
+      .delete(req.deletePhoto, { data: config })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    pageRefresh();
+  }
+
+  async function fetchData() {
+    const data = await axios.get(req.fetchPhoto);
+    return data.data;
+  }
+
+  useEffect(() => {
+    trackPromise(fetchData()).then(setDocs);
+  }, []);
 
   return (
     <section className='font-body flex flex-col  w-screen min-h-screen'>
@@ -23,35 +51,42 @@ const ImageGridAdmin = ({ setSelectedImg }) => {
         {/* masonry class is messing with delete */}
         {docs ? (
           docs.map((doc) => (
-            <motion.div
-              className='p-1 my-6'
-              key={doc.id}
-              layout
-              whileHover={{ opacity: 1 }}
-              s
-              onClick={() => setSelectedImg(doc.url)}
-            >
-              <button
-                className='py-1 px-2 absolute bg-white rounded-full'
-                onClick={() => handleDelete(doc.id, doc.name)}
+            <>
+              <motion.div
+                className='p-1 my-6'
+                key={doc.id}
+                layout
+                whileHover={{ opacity: 1 }}
+                s
+                //Throw away keys
+                key={Math.random().toString(36).substr(2, 9)}
               >
-                X
-              </button>
-              <motion.img
-                src={doc.url}
-                className=' rounded-md cursor-pointer'
-                alt='uploaded pic'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                height={250}
-                width={250}
-              />
-            </motion.div>
+                <button
+                  className='py-1 px-2 absolute bg-white rounded-full'
+                  onClick={() => handleDelete(doc.id, doc.name)}
+                  //Throw away keys
+                  key={Math.random().toString(36).substr(2, 9)}
+                >
+                  X
+                </button>
+                <motion.img
+                  src={doc.url}
+                  className=' rounded-md cursor-pointer'
+                  alt='uploaded pic'
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                  height={250}
+                  width={250}
+                  //Throw away keys
+                  key={Math.random().toString(36).substr(2, 9)}
+                />
+              </motion.div>
+            </>
           ))
         ) : (
           <section className='font-body flex justify-center items-center h-screen'>
-            <div className='text-5xl'>Coming Soon!</div>
+            <LoadingIndicator />
           </section>
         )}
       </div>

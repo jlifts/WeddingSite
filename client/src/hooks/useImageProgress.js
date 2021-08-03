@@ -1,6 +1,9 @@
+/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useState, useEffect } from 'react';
-import { storage, db, timeStamp } from '../utils/firebase';
+import { storage } from '../utils/firebase';
+import axios from '../api/axios';
+import reqs from '../api/req';
 
 const useStorage = (image) => {
   const [error, setError] = useState(null);
@@ -9,7 +12,7 @@ const useStorage = (image) => {
 
   useEffect(() => {
     const storageRef = storage.ref(image.name);
-    const collectionRef = db.collection('images');
+    // const collectionRef = db.collection('images');
 
     storageRef.put(image).on(
       'state_changed',
@@ -22,9 +25,14 @@ const useStorage = (image) => {
       },
       async () => {
         const url = await storageRef.getDownloadURL();
-        await collectionRef
-          .doc()
-          .set({ url, createdAt: timeStamp, name: image.name });
+        const config = {
+          name: image.name,
+          url: url,
+        };
+        await axios.post(reqs.postPhoto, config).then((res) => {
+          res.data;
+        });
+
         setUrl(url);
       }
     );

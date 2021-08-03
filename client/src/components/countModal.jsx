@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useState, useRef } from 'react';
 
-import { useDB } from '../hooks/useDB';
+import axios from '../api/axios';
+import reqs from '../api/req';
 
 const CountModal = () => {
   const [open, setOpen] = useState(false);
@@ -9,7 +12,6 @@ const CountModal = () => {
   const [error, setError] = useState('');
   const nameRef = useRef(null);
   const numberRef = useRef(null);
-  const { rsvp, increment } = useDB();
 
   function openModal() {
     setOpen(true);
@@ -19,18 +21,37 @@ const CountModal = () => {
     setOpen(false);
   }
 
+  function pageRefresh() {
+    window.location.reload();
+  }
+
+  async function postGuest() {
+    const data = {
+      name: nameRef.current.value,
+      number: numberRef.current.value,
+    };
+    await axios
+      .post(reqs.postNewGuest, data)
+      .then((_req) => {
+        // console.log(req);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       setLoading(true);
       setError('');
-      await rsvp(nameRef.current.value, numberRef.current.value);
-      await increment(numberRef.current.value);
+      await postGuest();
     } catch {
       setError('Server failed to check RSVP');
     }
     setLoading(false);
     closeModal();
+    pageRefresh();
   }
 
   return (
@@ -61,9 +82,9 @@ const CountModal = () => {
                     stroke='currentColor'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      stroke-width='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
                       d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
                     ></path>
                   </svg>

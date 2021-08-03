@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useContext, useState, useEffect } from 'react';
 
 import { auth, googleProvider } from './firebase';
+import axios from '../api/axios';
+import reqs from '../api/req';
 
 const AuthContext = React.createContext();
 
@@ -14,13 +17,20 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
-  // const [token, setToken] = useState(' ');
 
-  function signup(email, password, username) {
+  async function signup(email, password, username) {
     return auth.createUserWithEmailAndPassword(email, password).then((res) => {
       res.user.updateProfile({ displayName: username });
     });
   }
+  // async function signup(email, password, username) {
+  //   const data = {
+  //     email: email,
+  //     password: password,
+  //     handle: username,
+  //   };
+  //   return axios.post(reqs.postUser, data).then((res) => res.data);
+  // }
 
   function updateName(username) {
     return currentUser.updateProfile({ displayName: username });
@@ -30,10 +40,8 @@ export function AuthProvider({ children }) {
     return auth.signInWithEmailAndPassword(email, password);
   }
 
-  function googleAuth() {
+  async function googleAuth() {
     return auth.signInWithPopup(googleProvider).then((res) => {
-      // eslint-disable-next-line no-undef
-      // console.log(res);
       return res.user;
     });
   }
@@ -50,9 +58,10 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      // user.getIdToken().then((token) => {
-      //   setToken(token);
-      // });
+      // if (user) {
+      //   return user;
+      // }
+
       setLoading(false);
     });
     return unsubscribe;

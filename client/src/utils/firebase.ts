@@ -1,6 +1,6 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/storage';
 import 'firebase/auth';
-import 'firebase/firestore';
 import {
   FIREBASE_API_KEY,
   FIREBASE_APPID,
@@ -25,13 +25,6 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 export const auth = app.auth();
-
-export const db = app.firestore();
 export const storage = app.storage();
-
-const getCurrentTimestamp = firebase.firestore.Timestamp.now();
-export const timeStamp = getCurrentTimestamp.toDate().toDateString();
-export const Field = firebase.firestore.FieldValue;
-
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export default app;

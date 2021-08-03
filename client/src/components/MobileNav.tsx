@@ -18,7 +18,8 @@ const MobileNav: React.FC = () => {
 
   const variants = {
     open: {
-      transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+      transition: { staggerChildren: 0.07 },
+      y: 0,
     },
     closed: {
       transition: { staggerChildren: 0.05, staggerDirection: -1 },
@@ -70,7 +71,7 @@ const MobileNav: React.FC = () => {
       </div>
       <AnimatePresence>
         {open ? (
-          <div className='grid grid-cols-2 w-screen overflow-hidden'>
+          <motion.div className='grid grid-cols-2 w-screen overflow-hidden'>
             <motion.div
               className='bg-black cursor-pointer outline-none'
               onClick={handleOpen}
@@ -96,7 +97,7 @@ const MobileNav: React.FC = () => {
             >
               <motion.ul
                 className='z-50 flex flex-col space-y-10 mt-10'
-                initial={false}
+                initial='false'
                 variants={variants}
                 animate={open ? 'open' : 'closed'}
               >
@@ -178,7 +179,7 @@ const MobileNav: React.FC = () => {
                 </motion.li>
               </motion.ul>
             </motion.div>
-          </div>
+          </motion.div>
         ) : (
           ''
         )}

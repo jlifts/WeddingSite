@@ -19,7 +19,11 @@ const Clock = (text) => {
     }
 
     timerComponents.push(
-      <span className='mx-2'>
+      <span
+        className='mx-2'
+        //Throw away keys
+        key={Math.random().toString(36).substr(2, 9)}
+      >
         {timeLeft[interval]} {interval}{' '}
       </span>
     );

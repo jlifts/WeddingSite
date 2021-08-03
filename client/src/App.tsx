@@ -20,6 +20,7 @@ import PrivateRoute from './routes/privateRoute';
 import FAQ from './pages/FAQ';
 import PlacesToStay from './pages/PlacesToStay';
 import PhotosAdmin from './pages/PhotosAdmin';
+import ScrollToTop from './hooks/ScrollToTop';
 // import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
@@ -27,6 +28,7 @@ const App: React.FC = () => {
   return (
     <AuthProvider>
       <AnimatePresence exitBeforeEnter initial={false}>
+        <ScrollToTop />
         <Switch location={location} key={location.key}>
           <Route path='/signup' exact component={SignUp} />
           <Route path='/login' exact component={SignIn} />

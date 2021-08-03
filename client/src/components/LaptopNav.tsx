@@ -8,14 +8,20 @@ const LaptopNav: React.FC = () => {
       <div className='hidden md:contents'>
         <div className=' text-white flex p-3 justify-between sticky font-items z-50 w-screen '>
           <div className='flex justify-start'>
-            <Link className='px-8 hover:text-primary' to='/'>
+            <Link
+              className='px-8 hover:text-primary transform ease-in-out hover:scale-110'
+              to='/'
+            >
               Home
             </Link>
-            <Link className='px-8 hover:text-primary' to='/rsvp'>
+            <Link
+              className='px-8 hover:text-primary transform ease-in-out hover:scale-110'
+              to='/rsvp'
+            >
               RSVP
             </Link>
             <Link
-              className='px-8 hover:text-primary'
+              className='px-8 hover:text-primary transform ease-in-out hover:scale-110'
               to={{ pathname: REGISTRY_GUEST }}
               target='blank'
             >
@@ -23,13 +29,22 @@ const LaptopNav: React.FC = () => {
             </Link>
           </div>
           <div className='flex justify-end'>
-            <Link className='px-8 hover:text-primary' to='/photos'>
+            <Link
+              className='px-8 hover:text-primary transform ease-in-out hover:scale-110'
+              to='/photos'
+            >
               Photos
             </Link>
-            <Link className='px-8 hover:text-primary' to='/faq'>
+            <Link
+              className='px-8 hover:text-primary transform ease-in-out hover:scale-110'
+              to='/faq'
+            >
               FAQ
             </Link>
-            <Link className='px-8 hover:text-primary' to='/places-to-stay'>
+            <Link
+              className='px-8 hover:text-primary transform ease-in-out hover:scale-110'
+              to='/places-to-stay'
+            >
               Places To Stay
             </Link>
             {/* <Link className='px-8 hover:text-primary' to='/login'>

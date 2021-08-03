@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useEffect } from 'react';
-import useStorage from '../hooks/useStorage';
+import useStorage from '../hooks/useImageProgress';
 // import { motion } from 'framer-motion';
 
 const ProgressBar = ({ image, setImage }) => {
@@ -18,7 +18,7 @@ const ProgressBar = ({ image, setImage }) => {
       role='alert'
     >
       <p className='font-bold truncate'>{image.name}</p>
-      <div class='shadow w-full bg-grey-light'></div>
+      <div className='shadow w-full bg-grey-light'></div>
       <div
         className='bg-pink-200 text-xs leading-none py-1 text-center text-white'
         style={{ width: progress + '%' }}

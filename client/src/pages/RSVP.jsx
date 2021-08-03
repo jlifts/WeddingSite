@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -5,17 +7,32 @@ import { motion } from 'framer-motion';
 
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
-import { useDB } from '../hooks/useDB';
 import { INVITE } from '../key';
+import axios from '../api/axios';
+import reqs from '../api/req';
 
 const RSVP = () => {
-  const { rsvp, increment } = useDB();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const nameRef = useRef(null);
   const numberRef = useRef(null);
   const codeRef = useRef(null);
   const history = useHistory();
+
+  async function postGuest() {
+    const data = {
+      name: nameRef.current.value,
+      number: numberRef.current.value,
+    };
+    await axios
+      .post(reqs.postGuests, data)
+      .then((_req) => {
+        // console.log(req);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -35,8 +52,7 @@ const RSVP = () => {
     try {
       setLoading(true);
       setError('');
-      await rsvp(nameRef.current.value, numberRef.current.value);
-      await increment(numberRef.current.value);
+      await postGuest();
       history.push('/thankyou');
     } catch {
       setError('Server failed to check RSVP');
