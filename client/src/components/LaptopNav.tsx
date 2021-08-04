@@ -10,6 +10,7 @@ const LaptopNav: React.FC = () => {
           <div className='flex justify-start'>
             <Link
               className='px-8 hover:text-primary transform ease-in-out hover:scale-110'
+              aria-label='Home'
               to='/'
             >
               Home

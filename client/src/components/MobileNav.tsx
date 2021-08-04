@@ -106,7 +106,11 @@ const MobileNav: React.FC = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Link className='px-3 hover:text-primary' to='/'>
+                  <Link
+                    className='px-3 hover:text-primary'
+                    to='/'
+                    aria-label='Home'
+                  >
                     Home
                   </Link>
                 </motion.li>

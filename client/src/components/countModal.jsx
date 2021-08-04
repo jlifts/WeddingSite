@@ -56,7 +56,11 @@ const CountModal = () => {
 
   return (
     <>
-      <button onClick={openModal} className='flex justify-center'>
+      <button
+        onClick={openModal}
+        className='flex justify-center'
+        aria-label='Update Guest List'
+      >
         Manual Update
       </button>
       {open ? (
@@ -135,12 +139,14 @@ const CountModal = () => {
                   </div>
                 </div>
                 <button
+                  aria-label='Close Modal'
                   onClick={closeModal}
                   className='flex-no-shrink absolute top-0 right-0 px-5 ml-4 border-none py-2 text-sm hover:scale-150 font-medium tracking-wider  text-black '
                 >
                   X
                 </button>
                 <button
+                  aria-label='Update List'
                   type='submit'
                   className='flex-no-shrink px-5 ml-4 m-6 sm:m-0 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider'
                   disabled={loading}

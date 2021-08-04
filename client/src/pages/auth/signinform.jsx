@@ -105,6 +105,7 @@ const SignInForm = () => {
                 </div>
               </div>
               <button
+                aria-label='Log In'
                 disabled={loading}
                 type='submit'
                 className='w-full px-3 py-4 text-white bg-secondary rounded-md hover:bg-secondaryAccent focus:bg-secondaryAccent focus:outline-none font-items'
@@ -116,6 +117,7 @@ const SignInForm = () => {
                 <GoogleLoginButton
                   className='google font-items'
                   onClick={handleGoogle}
+                  aria-label='Log In with Google'
                 >
                   <span className='text-sm sm:text-xl'>Log In with Google</span>
                 </GoogleLoginButton>

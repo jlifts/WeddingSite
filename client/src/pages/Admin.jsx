@@ -59,7 +59,7 @@ const Admin = () => {
             <Link to='/profile' className='mx-4'>
               Profile
             </Link>
-            <button onClick={handleLogOut} className=''>
+            <button onClick={handleLogOut} className='' aria-label='Log Out'>
               Log Out
             </button>
           </div>

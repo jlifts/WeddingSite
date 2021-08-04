@@ -149,6 +149,7 @@ const RSVP = () => {
               </label>
             </div>
             <button
+              aria-label='RSVP'
               disabled={loading}
               type='submit'
               className='w-full px-3 py-4 text-white bg-secondary rounded-md hover:bg-secondaryAccent focus:bg-secondaryAccent focus:outline-none font-items'

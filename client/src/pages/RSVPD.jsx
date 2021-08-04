@@ -101,7 +101,7 @@ const RSVPD = () => {
           <Link to='/profile' className='mx-4'>
             Profile
           </Link>
-          <button onClick={handleLogOut} className=''>
+          <button onClick={handleLogOut} className='' aria-label='Log Out'>
             Log Out
           </button>
         </div>
@@ -140,6 +140,7 @@ const RSVPD = () => {
                 </td>
                 <td>
                   <button
+                    aria-label='Delete Guest'
                     key={name}
                     className='pt-2 sm:w-48 h-10'
                     onClick={() => handleDelete(name, attendees)}

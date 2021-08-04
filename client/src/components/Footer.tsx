@@ -3,15 +3,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 import { REGISTRY_GUEST } from '../key';
+import { useEffect, useState } from 'react';
 
 //Add Social Pages Links
 
 const Footer: React.FC = () => {
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    if (window.location.search.includes('success=true')) {
+      setSuccess(true);
+    }
+  }, []);
   return (
     <footer className='bg-secondary text-white font-items py-10 overflow-hidden'>
       <div className='flex flex-col ml-5 sm:items-start space-y-14 sm:space-y-0 sm:grid sm:grid-cols-3 justify-items-center'>
         <div className='flex flex-col sm:pt-3'>
-          <h5 className='text-lg font-semibold pb-3'>Menu</h5>
+          <h6 className='text-lg font-semibold pb-3'>Menu</h6>
           <Link className='hover:text-primary' to='/'>
             Home
           </Link>
@@ -56,8 +64,11 @@ const Footer: React.FC = () => {
         </div>
 
         <div className='flex flex-col mr-7 '>
+          {success && (
+            <p style={{ color: 'green' }}>Thanks for your message!</p>
+          )}
           <form
-            action='POST'
+            action='/success=true'
             method='POST'
             data-netlify='true'
             name='wedding-contact-form'
@@ -82,6 +93,7 @@ const Footer: React.FC = () => {
             />
             <button
               type='submit'
+              aria-label='Send Email'
               className='bg-transparent text-white rounded-md hover:bg-white hover:text-black'
             >
               Send

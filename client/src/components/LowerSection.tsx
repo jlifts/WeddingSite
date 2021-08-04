@@ -29,7 +29,7 @@ const LowerSection = () => {
             initial='hidden'
             animate='show'
           >
-            <motion.h3
+            <motion.h5
               variants={item}
               className='sm:mx-16 sm:ml-32 flex flex-col uppercase font-bold'
             >
@@ -39,7 +39,7 @@ const LowerSection = () => {
               <motion.span className='text-2xl sm:text-6xl mt-1'>
                 Into A Dream
               </motion.span>
-            </motion.h3>
+            </motion.h5>
             <motion.div className='flex flex-col justify-center text-lg sm:mx-32 my-3'>
               <motion.p variants={item}>""</motion.p>
               <motion.p variants={item}> ~ Olivia</motion.p>

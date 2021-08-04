@@ -1,5 +1,4 @@
 const { admin, db } = require('../config/admin');
-// const { uuid } = require('uuidv4');
 
 module.exports = {
   //GET

@@ -149,6 +149,7 @@ const SignUpForm = () => {
                 </label>
               </div>
               <button
+                aria-label='Sign Up'
                 disabled={loading}
                 type='submit'
                 className='w-full px-3 py-4 text-white bg-secondary rounded-md hover:bg-secondaryAccent focus:bg-secondaryAccent focus:outline-none font-items'
@@ -158,6 +159,7 @@ const SignUpForm = () => {
               <div className='flex justify-center mt-1 or'>or</div>
               <div>
                 <GoogleLoginButton
+                  aria-label='Log In With Google'
                   className='google font-items'
                   onClick={handleGoogle}
                 >

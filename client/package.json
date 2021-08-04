@@ -22,6 +22,7 @@
     "react-loader-spinner": "^4.0.0",
     "react-promise-tracker": "^2.1.0",
     "react-router-dom": "^5.2.0",
+    "react-router-sitemap": "^1.2.0",
     "react-scripts": "4.0.3",
     "react-social-login-buttons": "^3.4.0",
     "react-use": "^17.2.4",
@@ -36,7 +37,8 @@
     "test": "jest",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "lint": "eslint . --ext .ts",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sitemap": "babel-node ./src/helpers/sitemap-builder.js"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +69,10 @@
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
     "autoprefixer": "^9",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "eslint": "^7.29.0",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",

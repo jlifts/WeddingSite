@@ -14,7 +14,7 @@ const Info: React.FC = () => {
           alt='flower'
         />
         <div className='order-last justify-self-center justify-items-center pl-7'>
-          <h3 className='font-bold text-lg sm:text-3xl'>Where</h3>
+          <h4 className='font-bold text-lg sm:text-3xl'>Where</h4>
           <p className='sm:text-2xl'>Port Farms</p>
           <p className='sm:text-2xl'>Waterford, Pennsylvania</p>
         </div>

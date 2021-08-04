@@ -43,7 +43,11 @@ const Groomsmen = () => {
           <Link to='/profile' className='text-white mx-4'>
             Profile
           </Link>
-          <button onClick={handleLogOut} className='text-white'>
+          <button
+            onClick={handleLogOut}
+            className='text-white'
+            aria-label='Log Out'
+          >
             Log Out
           </button>
         </div>
