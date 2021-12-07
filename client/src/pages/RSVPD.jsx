@@ -52,6 +52,7 @@ const RSVPD = () => {
       .catch((err) => {
         console.log(err);
       });
+    await window.location.reload();
   }
 
   async function fetchData() {
@@ -72,18 +73,18 @@ const RSVPD = () => {
   }, []);
 
   return (
-    <section className='h-full w-screen py-12 px-6 sm:p-12 bg-bg2 font-body'>
+    <section className="h-full w-screen py-12 px-6 sm:p-12 bg-bg2 font-body min-h-screen">
       {error && (
         <div
-          className='bg-red-100 border-l-4 border-red-500 text-red-700 p-3'
-          role='alert'
+          className="bg-red-100 border-l-4 border-red-500 text-red-700 p-3"
+          role="alert"
         >
-          <p className='font-bold'>Error</p>
+          <p className="font-bold">Error</p>
           <p>{error}</p>
         </div>
       )}
-      <nav className='flex flex-col sm:flex-row items-end w-full justify-between'>
-        <h4 className='text-2xl mb-5 sm:mb-0 sm:text-5xl'>
+      <nav className="flex flex-col sm:flex-row items-end w-full justify-between">
+        <h4 className="text-2xl mb-5 sm:mb-0 sm:text-5xl">
           Hello{' '}
           {currentUser.uid === GROOM
             ? 'Groom!'
@@ -91,58 +92,58 @@ const RSVPD = () => {
             ? 'My Beautiful Bride!'
             : history.push('/party')}
         </h4>
-        <div className='flex'>
-          <Link to='/' className=''>
+        <div className="flex">
+          <Link to="/" className="">
             Home
           </Link>
-          <Link to='/admin' className='ml-4'>
+          <Link to="/admin" className="ml-4">
             Dashboard
           </Link>
-          <Link to='/profile' className='mx-4'>
+          <Link to="/profile" className="mx-4">
             Profile
           </Link>
-          <button onClick={handleLogOut} className='' aria-label='Log Out'>
+          <button onClick={handleLogOut} className="" aria-label="Log Out">
             Log Out
           </button>
         </div>
       </nav>
-      <div className='my-12 text-lg'>Total Guest Count: {total} </div>
+      <div className="my-12 text-lg">Total Guest Count: {total} </div>
       <CountModal />
-      <div className='font-body flex justify-center items-center'>
+      <div className="font-body flex justify-center items-center">
         <LoadingIndicator />
       </div>
-      <table className='mx-0 my-12 sm:mx-0 sm:my-0 sm:m-12 sm:space-x-4 sm:space-y-4 space-y-48 w-full'>
+      <table className="mx-0 my-12 sm:mx-0 sm:my-0 sm:m-12 sm:space-x-4 sm:space-y-4 space-y-48 w-full">
         <tbody>
           <tr>
-            <th className='w-48'>Name</th>
-            <th className='w-48'>Attendees</th>
-            <th className='w-48'>Created At</th>
-            <th className='w-48'>Delete</th>
+            <th className="w-48">Name</th>
+            <th className="w-48">Attendees</th>
+            <th className="w-48">Created At</th>
+            <th className="w-48">Delete</th>
           </tr>
           {dataList &&
             dataList.map(({ name, attendees, createdAt }) => (
               <tr
-                className='text-center'
+                className="text-center"
                 //Throw away keys
                 key={Math.random().toString(36).substr(2, 9)}
               >
                 <td
-                  className='capitalize text-md font-bold w-80 h-20 sm:w-48 sm:h-10'
+                  className="capitalize text-md font-bold w-80 h-20 sm:w-48 sm:h-10"
                   key={name}
                 >
                   {name}
                 </td>
-                <td className='text-lg sm:w-48 h-10' key={attendees}>
+                <td className="text-lg sm:w-48 h-10" key={attendees}>
                   {attendees}
                 </td>
-                <td className='sm:w-48 h-10' key={createdAt}>
+                <td className="sm:w-48 h-10" key={createdAt}>
                   {createdAt}
                 </td>
                 <td>
                   <button
-                    aria-label='Delete Guest'
+                    aria-label="Delete Guest"
                     key={name}
-                    className='pt-2 sm:w-48 h-10'
+                    className="pt-2 sm:w-48 h-10"
                     onClick={() => handleDelete(name, attendees)}
                   >
                     X

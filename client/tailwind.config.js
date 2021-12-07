@@ -4,6 +4,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundSize: {'50': '50%'},
       scale: {
         '-1': '-1',
       },
@@ -22,8 +23,8 @@ module.exports = {
         bg2: 'var(--bg2)',
       },
       backgroundImage: () => ({
-        'hero-image': "url('../img/wedding_draft.jpg')",
-        'prop-image': "url('../img/example2.jpeg')",
+        'hero-image': "url('../img/Field.webp')",
+        'prop-image': "url('../img/CloseUp.webp')",
       }),
     },
     screens: {

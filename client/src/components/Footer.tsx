@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
     <footer className='bg-secondary text-white font-items py-10 overflow-hidden'>
       <div className='flex flex-col ml-5 sm:items-start space-y-14 sm:space-y-0 sm:grid sm:grid-cols-3 justify-items-center'>
         <div className='flex flex-col sm:pt-3'>
-          <h6 className='text-lg font-semibold pb-3'>Menu</h6>
+          <h5 className='text-lg font-semibold pb-3'>Menu</h5>
           <Link className='hover:text-primary' to='/'>
             Home
           </Link>

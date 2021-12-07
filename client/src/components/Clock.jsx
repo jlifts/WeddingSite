@@ -20,16 +20,16 @@ const Clock = (text) => {
 
     timerComponents.push(
       <span
-        className='mx-2'
+        className="mx-2"
         //Throw away keys
         key={Math.random().toString(36).substr(2, 9)}
       >
         {timeLeft[interval]} {interval}{' '}
-      </span>
+      </span>,
     );
   });
   return (
-    <div className='flex justify-center py-6'>
+    <div className="flex justify-center py-6">
       {timerComponents.length ? timerComponents : <span>{text}</span>}
     </div>
   );

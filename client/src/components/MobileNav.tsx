@@ -47,6 +47,7 @@ const MobileNav: React.FC = () => {
     <div className='sm:hidden'>
       <div className='flex items-center justify-end w-screen z-40 mb-2'>
         <button
+          aria-label='Nav Menu'
           className='p-3 pr-8 text-white w-10 h-10 relative focus:outline-none outline-none'
           onClick={handleOpen}
         >
