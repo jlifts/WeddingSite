@@ -50,22 +50,18 @@ const ImageGridAdmin = () => {
       <div className="grid grid-cols-1 sm:grid-cols-4 mx-12 before:box-inherit after:box-inherit">
         {/* masonry class is messing with delete */}
         {docs ? (
-          docs.map((doc) => (
-            <>
+          docs.map((doc, index) => (
+            <React.Fragment key={index}>
               <motion.div
                 className="p-1 my-6"
                 key={doc.id}
                 layout
                 whileHover={{ opacity: 1 }}
                 s
-                //Throw away keys
-                key={Math.random().toString(36).substr(2, 9)}
               >
                 <button
                   className="py-1 px-2 absolute bg-white rounded-full"
                   onClick={() => handleDelete(doc.id, doc.name)}
-                  //Throw away keys
-                  key={Math.random().toString(36).substr(2, 9)}
                 >
                   X
                 </button>
@@ -82,7 +78,7 @@ const ImageGridAdmin = () => {
                   key={Math.random().toString(36).substr(2, 9)}
                 />
               </motion.div>
-            </>
+            </React.Fragment>
           ))
         ) : (
           <section className="font-body flex justify-center items-center h-screen">

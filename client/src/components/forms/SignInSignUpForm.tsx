@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import { useAuth } from '../../utils/AuthContext';

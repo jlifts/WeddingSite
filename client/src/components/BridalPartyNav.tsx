@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../utils/AuthContext';

@@ -30,8 +30,8 @@ const ImageGrid = ({ setSelectedImg }) => {
       <div className="grid grid-cols-1 sm:grid-cols-4 mx-12 before:box-inherit after:box-inherit">
         {/* masonry class is messing with delete */}
         {docs ? (
-          docs.map((doc) => (
-            <>
+          docs.map((doc, index) => (
+            <React.Fragment key={index}>
               <motion.div
                 className="p-1 my-6"
                 key={doc.id}
@@ -39,8 +39,6 @@ const ImageGrid = ({ setSelectedImg }) => {
                 whileHover={{ opacity: 1 }}
                 s
                 onClick={() => setSelectedImg(doc.url)}
-                //Throw away keys
-                key={Math.random().toString(36).substr(2, 9)}
               >
                 <motion.img
                   src={doc.url}
@@ -53,7 +51,7 @@ const ImageGrid = ({ setSelectedImg }) => {
                   width={250}
                 />
               </motion.div>
-            </>
+            </React.Fragment>
           ))
         ) : (
           <div className="font-body flex items-center h-screen">
