@@ -15,86 +15,87 @@ const Footer: React.FC = () => {
       setSuccess(true);
     }
   }, []);
+
   return (
-    <footer className='bg-secondary text-white font-items py-10 overflow-hidden'>
-      <div className='flex flex-col ml-5 sm:items-start space-y-14 sm:space-y-0 sm:grid sm:grid-cols-3 justify-items-center'>
-        <div className='flex flex-col sm:pt-3'>
-          <h5 className='text-lg font-semibold pb-3'>Menu</h5>
-          <Link className='hover:text-primary' to='/'>
+    <footer className="bg-secondary text-white font-items py-10 overflow-hidden">
+      <div className="flex flex-col ml-5 sm:items-start space-y-14 sm:space-y-0 sm:grid sm:grid-cols-3 justify-items-center">
+        <div className="flex flex-col sm:pt-3">
+          <h5 className="text-lg font-semibold pb-3">Menu</h5>
+          <Link className="hover:text-primary" to="/">
             Home
           </Link>
-          <Link className='hover:text-primary' to='/rsvp'>
+          <Link className="hover:text-primary" to="/rsvp">
             RSVP
           </Link>
           <Link
-            className='hover:text-primary'
+            className="hover:text-primary"
             to={{ pathname: REGISTRY_GUEST }}
-            target='blank'
+            target="blank"
           >
             Registry
           </Link>
-          <Link className='hover:text-primary' to='/photos'>
+          <Link className="hover:text-primary" to="/photos">
             Photos
           </Link>
-          <Link className='hover:text-primary' to='/faq'>
+          <Link className="hover:text-primary" to="/faq">
             FAQ
           </Link>
-          <Link className='hover:text-primary' to='/places-to-stay'>
+          <Link className="hover:text-primary" to="/places-to-stay">
             Places To Stay
           </Link>
         </div>
-        <div className='flex flex-col space-y-3 font-semibold pt-3'>
-          <Link to='/login' className='hover:text-primary'>
+        <div className="flex flex-col space-y-3 font-semibold pt-3">
+          <Link to="/login" className="hover:text-primary">
             Bridal Party Login
           </Link>
-          <div className='flex flex-row text-xl'>
-            <Link to='#'>
+          <div className="flex flex-row text-xl">
+            <Link to="#">
               <FontAwesomeIcon
                 icon={faInstagram}
-                className='cursor-pointer hover:text-pink-400'
+                className="cursor-pointer hover:text-pink-400"
               />
             </Link>
-            <Link to='#'>
+            <Link to="#">
               <FontAwesomeIcon
                 icon={faFacebook}
-                className='ml-3 cursor-pointer hover:text-blue-400'
+                className="ml-3 cursor-pointer hover:text-blue-400"
               />
             </Link>
           </div>
         </div>
 
-        <div className='flex flex-col mr-7 '>
+        <div className="flex flex-col mr-7 ">
           {success && (
             <p style={{ color: 'green' }}>Thanks for your message!</p>
           )}
           <form
-            action='/success=true'
-            method='POST'
-            data-netlify='true'
-            name='wedding-contact-form'
-            className='flex flex-col space-y-4'
+            action="/success=true"
+            method="POST"
+            data-netlify="true"
+            name="wedding-contact-form"
+            className="flex flex-col space-y-4"
           >
             <input
-              type='hidden'
-              name='form-name'
-              value='wedding-contact-form'
+              type="hidden"
+              name="form-name"
+              value="wedding-contact-form"
             />
-            <h5 className='text-lg font-semibold'>Contact Groom/Dev</h5>
+            <h5 className="text-lg font-semibold">Contact Groom/Dev</h5>
             <input
-              type='email'
-              name='email'
-              placeholder='Email'
-              className='bg-transparent appearance-none focus:outline-none border-b-2 focus-within:border-primaryAccent relative'
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="bg-transparent appearance-none focus:outline-none border-b-2 focus-within:border-primaryAccent relative"
             />
             <textarea
-              name='message'
-              placeholder='Message'
-              className='bg-transparent resize-none appearance-none focus:outline-none border-b-2 focus-within:border-primaryAccent relative pb-14'
+              name="message"
+              placeholder="Message"
+              className="bg-transparent resize-none appearance-none focus:outline-none border-b-2 focus-within:border-primaryAccent relative pb-14"
             />
             <button
-              type='submit'
-              aria-label='Send Email'
-              className='bg-transparent text-white rounded-md hover:bg-white hover:text-black'
+              type="submit"
+              aria-label="Send Email"
+              className="bg-transparent text-white rounded-md hover:bg-white hover:text-black"
             >
               Send
             </button>

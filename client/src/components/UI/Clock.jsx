@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useState, useEffect } from 'react';
+import { calcTimeLeft } from '../../helpers/functions';
 
 const Clock = (text) => {
   const [timeLeft, setTimeLeft] = useState(calcTimeLeft());
@@ -36,20 +37,3 @@ const Clock = (text) => {
 };
 
 export default Clock;
-
-function calcTimeLeft() {
-  // const year = new Date().getFullYear();
-  const difference = +new Date(`07/30/2022`) - +new Date();
-
-  let timeLeft = {};
-
-  if (difference > 0) {
-    timeLeft = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-  }
-  return timeLeft;
-}

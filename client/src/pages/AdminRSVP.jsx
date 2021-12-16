@@ -1,41 +1,26 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
 import { trackPromise } from 'react-promise-tracker';
-
 import { useAuth } from '../utils/AuthContext';
-import { GROOM, BRIDE } from '../key';
-import CountModal from '../components/countModal';
-import LoadingIndicator from '../components/Loader';
 // import axiosAuth from '../api/axiosAuth';
 import axios from '../api/axios';
 import reqs from '../api/req';
+import { Modal } from '../components';
+import LoadingIndicator from '../components/UI/Loader';
+import AdminNav from '../components/AdminNav';
 
 const RSVPD = () => {
-  const [error, setError] = useState('');
   const [dataList, setDataList] = useState([]);
   const [total, setTotal] = useState(0);
-  const { currentUser, logout } = useAuth();
-  const history = useHistory();
+  const { currentUser } = useAuth();
   const token = currentUser.getIdToken(true);
 
-  async function handleLogOut() {
-    setError('');
-    try {
-      await logout();
-      history.push('/login');
-    } catch {
-      setError('Failed to Logout');
-    }
-  }
-
   // Firestore + Axios
-  async function handleUpdate(number) {
-    // update(number);
-    console.log(number);
-  }
+  // async function handleUpdate(number) {
+  //   // update(number);
+  //   console.log(number);
+  // }
 
   async function handleDelete(name, attendees) {
     const number = parseInt(attendees);
@@ -74,41 +59,9 @@ const RSVPD = () => {
 
   return (
     <section className="h-full w-screen py-12 px-6 sm:p-12 bg-bg2 font-body min-h-screen">
-      {error && (
-        <div
-          className="bg-red-100 border-l-4 border-red-500 text-red-700 p-3"
-          role="alert"
-        >
-          <p className="font-bold">Error</p>
-          <p>{error}</p>
-        </div>
-      )}
-      <nav className="flex flex-col sm:flex-row items-end w-full justify-between">
-        <h4 className="text-2xl mb-5 sm:mb-0 sm:text-5xl">
-          Hello{' '}
-          {currentUser.uid === GROOM
-            ? 'Groom!'
-            : currentUser.uid === BRIDE
-            ? 'My Beautiful Bride!'
-            : history.push('/party')}
-        </h4>
-        <div className="flex">
-          <Link to="/" className="">
-            Home
-          </Link>
-          <Link to="/admin" className="ml-4">
-            Dashboard
-          </Link>
-          <Link to="/profile" className="mx-4">
-            Profile
-          </Link>
-          <button onClick={handleLogOut} className="" aria-label="Log Out">
-            Log Out
-          </button>
-        </div>
-      </nav>
+      <AdminNav />
       <div className="my-12 text-lg">Total Guest Count: {total} </div>
-      <CountModal />
+      <Modal Guest button_label={'Manual Update'} />
       <div className="font-body flex justify-center items-center">
         <LoadingIndicator />
       </div>

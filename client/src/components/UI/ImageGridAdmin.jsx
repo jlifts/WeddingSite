@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { trackPromise } from 'react-promise-tracker';
 
-import axios from '../api/axios';
-import req from '../api/req';
-import LoadingIndicator from '../components/Loader';
+import axios from '../../api/axios';
+import req from '../../api/req';
+import LoadingIndicator from './Loader';
 
 const ImageGridAdmin = () => {
   const [docs, setDocs] = useState();
@@ -43,17 +43,17 @@ const ImageGridAdmin = () => {
   }, []);
 
   return (
-    <section className='font-body flex flex-col  w-screen min-h-screen'>
-      <h3 className='text-2xl sm:text-5xl my-12 flex justify-center'>
+    <section className="font-body flex flex-col  w-screen min-h-screen">
+      <h3 className="text-2xl sm:text-5xl my-12 flex justify-center">
         Moments We Will Never Forget
       </h3>
-      <div className='grid grid-cols-1 sm:grid-cols-4 mx-12 before:box-inherit after:box-inherit'>
+      <div className="grid grid-cols-1 sm:grid-cols-4 mx-12 before:box-inherit after:box-inherit">
         {/* masonry class is messing with delete */}
         {docs ? (
           docs.map((doc) => (
             <>
               <motion.div
-                className='p-1 my-6'
+                className="p-1 my-6"
                 key={doc.id}
                 layout
                 whileHover={{ opacity: 1 }}
@@ -62,7 +62,7 @@ const ImageGridAdmin = () => {
                 key={Math.random().toString(36).substr(2, 9)}
               >
                 <button
-                  className='py-1 px-2 absolute bg-white rounded-full'
+                  className="py-1 px-2 absolute bg-white rounded-full"
                   onClick={() => handleDelete(doc.id, doc.name)}
                   //Throw away keys
                   key={Math.random().toString(36).substr(2, 9)}
@@ -71,8 +71,8 @@ const ImageGridAdmin = () => {
                 </button>
                 <motion.img
                   src={doc.url}
-                  className=' rounded-md cursor-pointer'
-                  alt='uploaded pic'
+                  className=" rounded-md cursor-pointer"
+                  alt="uploaded pic"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
@@ -85,7 +85,7 @@ const ImageGridAdmin = () => {
             </>
           ))
         ) : (
-          <section className='font-body flex justify-center items-center h-screen'>
+          <section className="font-body flex justify-center items-center h-screen">
             <LoadingIndicator />
           </section>
         )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { IntersectionObserver } from '../helpers/IntersectionContext';
+import { IntersectionObserver } from '../utils/IntersectionContext';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const LowerSection = () => {

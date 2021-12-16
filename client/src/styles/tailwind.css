@@ -87,6 +87,9 @@ body {
 .disapear {
   opacity: 0;
 }
+.w-30vw {
+  width: 30vw !important;
+}
 
 @media (min-width: 640px) {
   .rsvp {

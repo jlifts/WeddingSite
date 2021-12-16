@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import axios from '../api/axios';
 import reqs from '../api/req';
+import ErrorAlert from '../components/ErrorAlert';
 
 const RSVP = () => {
   const [loading, setLoading] = useState(false);
@@ -73,15 +74,7 @@ const RSVP = () => {
             className="flex flex-col mx-auto space-y-14 rsvp"
           >
             <h2 className="flex justify-center text-4xl font-bold">RSVP</h2>
-            {error && (
-              <div
-                className="bg-red-100 border-l-4 border-red-500 text-red-700 p-3"
-                role="alert"
-              >
-                <p className="font-bold font-items">Error</p>
-                <p>{error}</p>
-              </div>
-            )}
+            {error && <ErrorAlert error={error} />}
             <div className="relative border-b-2 focus-within:border-primaryAccent">
               {/* Previously border-blue-500 */}
               <input

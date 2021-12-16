@@ -1,11 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
-
-import Footer from '../components/Footer';
-import Nav from '../components/Nav';
-import ImageGrid from '../components/ImageGrid';
-import ImageModal from '../components/ImageModal';
+import { Footer, ImageGrid, ImageModal, Nav } from '../components';
 
 // FEATURE: Allow comments and Likes?
 
