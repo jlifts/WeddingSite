@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col mr-7 ">
           {success && (
-            <p style={{ color: 'green' }}>Thanks for your message!</p>
+            <p style={{ color: 'white' }}>Thanks for your message!</p>
           )}
           <form
             data-netlify="true"
