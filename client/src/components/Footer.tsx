@@ -63,16 +63,12 @@ const Footer: React.FC = () => {
             <p style={{ color: 'green' }}>Thanks for your message!</p>
           )}
           <form
-            onSubmit={() => setSuccess(true)}
             data-netlify="true"
-            name="wedding-contact-form"
+            method="post"
+            name="contact"
             className="flex flex-col space-y-4"
           >
-            <input
-              type="hidden"
-              name="form-name"
-              value="wedding-contact-form"
-            />
+            <input type="hidden" name="form-name" value="contact" />
             <h5 className="text-lg font-semibold">Contact Groom/Dev</h5>
             <input
               type="email"
@@ -87,6 +83,7 @@ const Footer: React.FC = () => {
             />
             <button
               type="submit"
+              onClick={() => setSuccess(true)}
               aria-label="Send Email"
               className="bg-transparent text-white rounded-md hover:bg-white hover:text-black"
             >
