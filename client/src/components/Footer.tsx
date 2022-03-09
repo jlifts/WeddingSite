@@ -64,7 +64,6 @@ const Footer: React.FC = () => {
           )}
           <form
             onSubmit={() => setSuccess(true)}
-            method="POST"
             data-netlify="true"
             name="wedding-contact-form"
             className="flex flex-col space-y-4"
