@@ -5,6 +5,7 @@ import axios from '../../api/axios';
 import reqs from '../../api/req';
 import { useAuth } from '../../utils/AuthContext';
 import ErrorAlert from '../ErrorAlert';
+import LoadingIndicator from '../UI/Loader';
 
 const FAQForm: any = ({ closeModal, pageRefresh }: any) => {
   const { currentUser } = useAuth();
@@ -97,6 +98,7 @@ const FAQForm: any = ({ closeModal, pageRefresh }: any) => {
                 >
                   Add
                 </button>
+                {loading ? <LoadingIndicator /> : null}
               </div>
             </div>
             <button

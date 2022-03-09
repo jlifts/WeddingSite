@@ -10,6 +10,7 @@ import Nav from '../components/Nav';
 import axios from '../api/axios';
 import reqs from '../api/req';
 import ErrorAlert from '../components/ErrorAlert';
+import LoadingIndicator from '../components/UI/Loader';
 
 const RSVP = () => {
   const [loading, setLoading] = useState(false);
@@ -113,14 +114,18 @@ const RSVP = () => {
                 Number Of Attendees Or 0 If Not Attending
               </label>
             </div>
-            <button
-              aria-label="RSVP"
-              disabled={loading}
-              type="submit"
-              className="w-full px-3 py-4 text-white bg-secondary rounded-md hover:bg-secondaryAccent focus:bg-secondaryAccent focus:outline-none font-items"
-            >
-              RSVP
-            </button>
+            {loading ? (
+              <LoadingIndicator />
+            ) : (
+              <button
+                aria-label="RSVP"
+                disabled={loading}
+                type="submit"
+                className="w-full px-3 py-4 text-white bg-secondary rounded-md hover:bg-secondaryAccent focus:bg-secondaryAccent focus:outline-none font-items"
+              >
+                RSVP
+              </button>
+            )}
           </form>
         </div>
         <img

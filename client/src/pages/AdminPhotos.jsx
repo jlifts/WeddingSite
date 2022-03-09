@@ -27,7 +27,6 @@ const PhotosAdmin = () => {
         )}
         <Footer />
       </section>
-      )
     </motion.main>
   );
 };

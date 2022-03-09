@@ -3,18 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 import { REGISTRY_GUEST } from '../key';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 //Add Social Pages Links
 
 const Footer: React.FC = () => {
   const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    if (window.location.search.includes('success=true')) {
-      setSuccess(true);
-    }
-  }, []);
 
   return (
     <footer className="bg-secondary text-white font-items py-10 overflow-hidden">
@@ -69,7 +63,7 @@ const Footer: React.FC = () => {
             <p style={{ color: 'green' }}>Thanks for your message!</p>
           )}
           <form
-            action="/success=true"
+            onSubmit={() => setSuccess(true)}
             method="POST"
             data-netlify="true"
             name="wedding-contact-form"

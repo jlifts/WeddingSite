@@ -12,6 +12,7 @@ import AdminNav from '../components/AdminNav';
 
 const RSVPD = () => {
   const [dataList, setDataList] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const { currentUser } = useAuth();
   const token = currentUser.getIdToken(true);
@@ -28,11 +29,13 @@ const RSVPD = () => {
       name: name,
       number: number,
     };
+    setLoading(true);
     console.log(config);
     await axios
       .delete(reqs.deleteGuest, { data: config })
       .then((data) => {
         console.log(data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -93,14 +96,18 @@ const RSVPD = () => {
                   {createdAt}
                 </td>
                 <td>
-                  <button
-                    aria-label="Delete Guest"
-                    key={name}
-                    className="pt-2 sm:w-48 h-10"
-                    onClick={() => handleDelete(name, attendees)}
-                  >
-                    X
-                  </button>
+                  {loading ? (
+                    <LoadingIndicator />
+                  ) : (
+                    <button
+                      aria-label="Delete Guest"
+                      key={name}
+                      className="pt-2 sm:w-48 h-10"
+                      onClick={() => handleDelete(name, attendees)}
+                    >
+                      X
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
